@@ -1,0 +1,149 @@
+﻿@model CalCom.Web.Models.SonucTestListesi
+@{
+    ViewBag.Title = "SonucListesi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="panel-heading">
+        <h2>Karşılaştırma Sonuçlandırma</h2>
+    </div>
+    <div class="panel-body">
+        <h3>Karşılaştırmalar Listesi</h3>
+     
+          
+         
+            
+           
+
+                @*<i class="icon-plus" id="icon_@Model.STler[k].Konu" onclick="tabloGetir('@Model.STler[k].testId')"></i>*@
+
+                            
+            
+                   <div class="row">   <div class="col-md-6 col-sm-6">
+                        @using (Html.BeginForm("OlcumSonucları", "KarsilastirmaIslem", FormMethod.Get))
+      {
+                                    <div class="form-group">
+                                            <label>Karşılaştırmalar</label>
+                                                   
+                                        <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Karşılaştırma</th>
+                                            <th>Konusu</th>
+                                             <th>Kayıt Lab</th>
+                                            <th>Ölçüm Lab</th>
+                                             <th>Kesin Değer</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{int i = 1;}
+                                        @foreach (var t in Model.STler)
+                                        {
+                                           
+                                        <tr id="@t.testId">
+                                            <td>@i </td>
+                                            <td>@t.KarIsim</td>
+                                            <td>@t.Konu</td>
+                                            <td>@t.KytLabSayisi
+                                            </td>
+                                            <td>@t.VGLabSayisi</td>
+                                            <td>@t.KesinDeger</td>
+                                        </tr>
+                                       
+                                            i = i + 1;   
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                                                     <input type="hidden"  name="testid" id="testid" />   
+                                   <!-- dropdown box bitimi --></div>
+                          <input id="ony" type="submit" value="ONAYLA" title="SEÇ"  />
+          <p id="uyari" style="color:red" hidden="hidden" >performans hesaplamaları için kesin değerin atanması gereklidir</p>
+                   }
+                                         </div>
+                                    <!-- ölçüm aleti gösterimi -->
+                                     <div class="col-md-6 col-sm-6">
+                                         
+                                   <div id="partialSpan"> </div>
+
+                                     </div>
+
+                   </div>
+                                  
+                                                     
+         
+    </div>
+    </div>
+
+<script>
+    var x;
+   @foreach(var t in Model.STler){
+        
+        @:$("#@t.testId").click(function () { $(".active").removeAttr('class'); $(this).attr('class', 'active'); x = '@t.testId'; labGetir('@t.KesinDegerDurum'); });
+   }
+    function labGetir(y) {
+ $('#testid').val(x);
+        if (y=="True") {
+            $('#ony').removeAttr('disabled'); $('#uyari').attr('hidden', 'hidden');
+           
+            $.ajax(
+{
+    url: '/KarsilastirmaIslem/KesinDegerGostermePartial',
+    type: "GET",
+    data: { 'testid': x },
+    success: function (response) {
+        $("#partialSpan").html(response);
+
+    }
+
+});
+        }
+        else {
+            $('#ony').attr('disabled', 'disabled');
+            $('#uyari').removeAttr('hidden');
+            $.ajax(
+{
+    url: '/KarsilastirmaIslem/KesinDegerAtamaPartial',
+    type: "GET",
+    data: { 'testid': x },
+    success: function (response) {
+        $("#partialSpan").html(response);
+
+    }
+
+});
+        }
+       
+        
+
+    }
+    function degistir(id) {
+        $.ajax(
+{
+    url: '/KarsilastirmaIslem/KesinDegerGuncellemePartial',
+    type: "GET",
+    data: { 'testid': x },
+    success: function (response) {
+        $("#partialSpan").html(response);
+
+    }
+
+});
+    }
+    function iptal(id) {
+        $.ajax(
+{
+    url: '/KarsilastirmaIslem/KesinDegerGostermePartial',
+    type: "GET",
+    data: { 'testid': x },
+    success: function (response) {
+        $("#partialSpan").html(response);
+
+    }
+
+});
+    }
+</script>

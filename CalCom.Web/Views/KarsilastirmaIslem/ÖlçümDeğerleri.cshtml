@@ -1,0 +1,103 @@
+﻿@model CalCom.Web.Models.OlcumDegerleriViewModel
+@{
+    ViewBag.Title = "ÖlçümDeğerleri";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="panel-heading">
+        <h2>Karşılaştırma Ekleme</h2>
+    </div>
+     <div class="row"> Navigation noktaları </div>
+    <div class="panel-body">
+      
+<div class="panel panel-default">
+                        @*<div class="panel-heading">
+                            
+                            <p>Veri Tipi Seçiniz: @Html.DropDownListFor(x => x.karid, Model.dropDownList,"Bir Seçim Yapınız", new { onchange="vts(this)" })</p>
+                        </div>*@
+  
+   <div class="panel-heading">
+
+      <h3 class="panel-title">Parametre Sayısı: </h3><input type="text" class="form-control" id="par-control" required="">
+   </div>
+    @using (Html.BeginForm("EkleBilgilendirme_karisik", "KarsilastirmaIslem", FormMethod.Post))
+    {
+   <div class="panel-body">
+      Parametre Değerleri burada girilecektir.
+       <span id="par-div"></span>
+   </div>
+        <div>
+            <button>KAYDET</button>
+        </div>
+    }
+</div>
+</div>
+    
+            </div>
+</div>
+<script>
+//    function vts(b) {
+       
+//        //var e = document.getElementById("ddlViewBy");
+//        var strUser = b.options[b.selectedIndex].value;
+//        alert(strUser);
+//        if (strUser == "Kare")
+
+//            $.ajax(
+//        {
+//            url: '/KarsilastirmaIslem/DuzenliVeriIsteme',
+//            type: "GET",
+//            data: {'karid' : karid},
+     
+//      success: function (response) {
+//          $("#vtsSpan").html(response);
+
+//      }
+//        });
+//        else if(strUser=="Icice")
+//            $.ajax(
+//{
+//    url: '/KarsilastirmaIslem/DuzensizVeriIsteme',
+//    type: "GET",
+//    data: { 'karid': karid },
+
+//    success: function (response) {
+//        $("#vtsSpan").html(response);
+
+//    }
+//});
+//    }
+
+
+    var karid;
+     @{
+            <text>
+    karid = '@Model.karid';
+
+     </text>
+         }
+    var kaldigiYer = 0;
+    
+            
+         
+    $("#par-control").change(function () {
+        var e = $("#par-control").val();
+        alert(e);
+
+        $.ajax(
+    {
+        url: '/KarsilastirmaIslem/ParDegerPartial_Karisik',
+        type: "GET",
+        data: {
+            'sayi': e,
+            'karid': karid
+        },
+        success: function (response) {
+            $("#par-div").html(response);
+
+        }
+    });
+    });
+
+</script>

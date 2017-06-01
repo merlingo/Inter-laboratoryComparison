@@ -1,0 +1,47 @@
+﻿@model CalCom.Web.Models.NestedInputValueViewModel
+ @{ int onİndex = 0; }
+Her baslık PD ile tablo oluşturulacak. OlcumSayilarindaki sayı kadar row olacak. OlcumNoktası arrayinde i*sayi ile deger istenecek
+ @using (Html.BeginForm("OlcumBilgilen", "KarsilastirmaIslem", FormMethod.Post)){
+                   
+
+     
+for(int i=0;i<Model.baslikPD.Count;i++){
+                                        
+    <div class="panel">
+         <div class="panel-header"><h4>@Model.baslikPD[i] Ölçüm Değerleri</h4></div>
+        <div class="panel-body"><div class="table-responsive table-bordered">
+   
+                                <table class="table">
+                                    <thead>
+                                        <tr><th>Ölçüm Noktası</th>
+                                           <td>Girilecek Değer</td>
+                                        </tr>
+                                    </thead>
+
+
+                                    <tbody>
+                                         @Html.HiddenFor(x => x.olcId)   
+                                         
+                                               @for (int j = 0; j < Model.olcumNoktaSayilari[i]; j++,onİndex++)
+                                               {
+                                                    @Html.HiddenFor(x => x.sonuclar[onİndex].OlcumId)
+                                                    @Html.HiddenFor(x => x.sonuclar[onİndex].OlcumNoktalariId)
+                                                    @Html.HiddenFor(x => x.sonuclar[onİndex].Tarih)
+                                                    @Html.HiddenFor(x => x.sonuclar[onİndex].Id)
+                                               <tr><th>@Model.olcumNoktasi[onİndex] : </th>  <td>@Html.TextBoxFor(x => x.sonuclar[onİndex].Deger, new {   required=""}) </td> </tr>
+                                                }
+                                           
+                                     
+                                        
+                                    </tbody>
+                                </table>
+                            </div></div>  </div>
+        }
+
+         <div class="box-footer">
+                       <input type="submit" value="GÖNDER" class="btn btn-default"/>
+                 
+                </div>
+                 }  
+  
+

@@ -1,0 +1,47 @@
+﻿@model int
+<p>burada nested yapı kullanılarak veriler alınır.</p>
+<div class="panel panel-default">
+   <div class="panel-heading">
+
+      <h3 class="panel-title">Parametre Sayısı: </h3><input type="text" class="form-control" id="par-control" required="">
+   </div>
+    @using (Html.BeginForm("EkleBilgilendirme_karisik", "KarsilastirmaIslem", FormMethod.Post))
+    {
+   <div class="panel-body">
+      Parametre Değerleri burada girilecektir.
+       <span id="par-div"></span>
+   </div>
+        <div>
+            <button>KAYDET</button>
+        </div>
+    }
+</div>
+<script>
+    var karid1;
+    var kaldigiYer = 0;
+     @{
+            <text>
+    karid1 = '@Model';
+
+     </text>
+         }
+    $("#par-control").change(function () {
+        var e = $("#par-control").val();
+        alert(e);
+    
+    $.ajax(
+{
+    url: '/KarsilastirmaIslem/ParDegerPartial_Karisik',
+    type: "GET",
+    data: {
+        'sayi': e,
+        'karid': karid1
+    },
+    success: function (response) {
+        $("#par-div").html(response);
+
+    }
+});
+});
+
+</script>

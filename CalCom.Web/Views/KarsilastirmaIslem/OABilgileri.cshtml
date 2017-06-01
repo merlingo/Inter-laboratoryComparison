@@ -1,0 +1,96 @@
+﻿@model CalCom.Web.Models.OlcumAletiViewModel
+@{
+    ViewBag.Title = "OABilgileri";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="col-md-12">
+    <div class="panel-heading">
+        <h2>Karşılaştırma Ekleme</h2>
+    </div>
+     <div class="row"> Navigation noktaları </div>
+    <div class="panel-body">
+      
+<div class="panel panel-default">
+                        <div class="panel-heading">
+                            Ölçüm Aleti Bilgileri
+                        </div>
+                        <div class="panel-body">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#Seç" data-toggle="tab">Seç</a>
+                                </li>
+                                <li class=""><a href="#Ekle" data-toggle="tab">Ekle</a>
+                                </li>
+                               
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane fade active in" id="Seç">
+                                    <h4>Ölçüm Aleti Seç</h4>
+                                    <hr />
+                                    <!-- dropdown box yeri--> 
+                                     @using(Html.BeginForm("KarsilastirmaBilgileri","KarsilastirmaIslem", FormMethod.Get)){  
+                                    <div class="row">   <div class="col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                            <label>Ölçüm Aletleri</label>
+                                                   
+                                       
+                                         <select multiple class="form-control" onchange="OADegisim()" id ="OAList">
+                                         
+                                            @foreach (var oa in Model.OAlar)
+                                            {
+         
+                                                 <option value="@oa.Id"  >@oa.Isim</option>
+                                               
+                    }
+                      </select>  
+                                                     <input type="hidden"  name="oaid" id="oaid"/>   
+                                   <!-- dropdown box bitimi --></div>
+                                         </div>
+                                    <!-- ölçüm aleti gösterimi -->
+                                     <div class="col-md-6 col-sm-6">
+                                         
+                                   <div id="partialSpan"></div></div></div>
+                           <div class="row">  <button type="submit" class="btn btn-primary btn-lg pull-right"> İLERLE</button>  </div>
+}
+                                </div> 
+                              
+                                <div class="tab-pane fade" id="Ekle">  
+                                    @using(Html.BeginForm("KarsilastirmaBilgileri","KarsilastirmaIslem",Model.oa, FormMethod.Post  )){
+                                    <h4>Ölçüm Aleti Ekle</h4>
+                                    <hr />
+                                      <div class="row">
+                                   @Html.EditorFor(x=>x.oa)
+                                          </div>
+                                      <div class="row">
+  <button type="submit" class="btn btn-primary btn-lg pull-right"> EKLE</button>
+                                          </div>
+                              }  
+
+                                </div>
+                                     
+                            </div>
+                        </div>
+                    </div>
+        </div>
+
+    </div>
+<script>
+    function OADegisim() {
+
+        var x = $("#OAList :selected").val();
+        $('#oaid').val(x);
+        
+        $.ajax(
+ {
+     url: '/KarsilastirmaIslem/OAPartial',
+     type: "GET",
+      data: { 'oaid': x },
+     success: function (response) {
+         $("#partialSpan").html(response);
+
+     }
+ });
+    }
+</script>

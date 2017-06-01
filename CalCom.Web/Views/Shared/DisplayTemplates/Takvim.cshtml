@@ -1,0 +1,76 @@
+﻿@model Calcom.Domain.Entities.Takvim
+@*<h2>@Model.TestName  Takvimi</h2>*@
+
+
+	<div id="calendar">
+        
+           <!-- Responsive calendar - START -->
+    	<div class="responsive-calendar">
+        <div class="controls">
+            <a class="pull-left" data-go="prev"><div class="btn btn-primary">Prev</div></a>
+            <h4><span data-head-year></span> <span data-head-month></span></h4>
+            <a class="pull-right" data-go="next"><div class="btn btn-primary">Next</div></a>
+        </div><hr/>
+        <div class="day-headers">
+          <div class="day header">Mon</div>
+          <div class="day header">Tue</div>
+          <div class="day header">Wed</div>
+          <div class="day header">Thu</div>
+          <div class="day header">Fri</div>
+          <div class="day header">Sat</div>
+          <div class="day header">Sun</div>
+        </div>
+        <div class="days" data-group="days">
+          
+        </div>
+      </div>
+      <!-- Responsive calendar - END -->
+        
+	</div>
+		<div class="span3">
+
+		
+            <span id="partialSpan"></span>
+		</div>
+	
+	  <script type="text/javascript">
+	      $(document).ready(function () {
+	          function addLeadingZero(num) {
+	              if (num < 10) {
+	                  return "0" + num;
+	              } else {
+	                  return "" + num;
+	              }
+	          }
+	          //1 test date arasındaki tüm tarihler active olacak - badge classlar verilecek
+	          //2 olcumDate  deki tarihler sarı ile belirtilecek
+	          //3 basıldığında fonksiyon çalışacak, number'a göre ya partial view ile basılan tarihin bilgilerini açacak aşağı ya da seçim yaptığını belirten yeni sayfaya geçilecek.
+	          $('.responsive-calendar').responsiveCalendar({
+	             
+	              time: '2015-01',
+	              events: {
+	                  @for (int i = 0; i < Model.TestZamanlari.Count; i++)   // başlangıç ve bitiş zamanları için
+                   {
+                       DateTime dd = Model.TestZamanlari[i].Tarih;
+	              @:    "@dd.ToString("yyyy-MM-dd")": { "number": '@Model.TestZamanlari[i].kisaIsim', "badgeClass": "badge-@Model.TestZamanlari[i].Type" },
+	                  	                  	                  	                                        }
+
+	               @*   @foreach (var  gZam  in Model.GecerliZamanlar())   // laboratuvarın kayıt olabildiği tarihler için
+                         {
+                       
+	              @:    "@gZam.ToString("yyyy-MM-dd")": { "class": "active special" },
+	                  	                  	                  	                                    }*@
+
+	                  @for (int i = 0; i < Model.OlcumZamanlari.Count; i++)   // laboratuvar ölçüm zamanları için
+                        {
+                            foreach (var d in Model.GecerliZamanlar(Model.OlcumZamanlari[i].basTarih, Model.OlcumZamanlari[i].bitTarih))
+                            {
+	              @:    "@d.ToString("yyyy-MM-dd")": { "number": '@Model.OlcumZamanlari[i].GLabName', "badgeClass": "badge-olcum" },
+	                  	                  	                  	                  	                                        }
+                                            }
+
+	              }
+	          }
+              );
+	      });
+    </script>

@@ -1,0 +1,27 @@
+﻿@model CalCom.Web.Models.Laboratuvar.LabinTestleri
+  <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Karşılaştırma
+                            </th>
+                            <th>Ölçüm Tarihi
+                            </th>
+                            <th>Test Başlama Tarihi
+                            </th>
+                          <th> GIT</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (var t in Model.Testler)
+                        {
+                            <tr>
+                                <td> @t.TestIsmi </td>
+                                <td>@t.OlcumTarihi</td>
+                                <td>@t.BaslamaTarihi</td>
+                                <td>@Html.ActionLink("Test Seç", "Ayrinti", "KarsilastirmaTakip", new { TestId = t.TestId }, new { id="link_"+t.TestId })</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>

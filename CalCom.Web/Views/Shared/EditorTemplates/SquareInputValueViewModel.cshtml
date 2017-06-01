@@ -1,0 +1,43 @@
+﻿@model CalCom.Web.Models.SquareInputValueViewModel
+@using (Html.BeginForm("OlcumBilgilenDuz", "KarsilastirmaIslem", FormMethod.Post)){
+ <div class="table-responsive table-bordered">
+                                <table class="table">
+                                    <thead>
+                                        <tr><th>Ölçüm Noktası</th>
+                                            @foreach (var m in Model.baslikPD)
+                                            {
+                                                <th>@m</th>
+                                            }
+                                        </tr>
+                                    </thead>
+
+
+                                    <tbody>
+                                     @{ int count = Model.baslikPD.Count; }
+                                         @Html.HiddenFor(x => x.olcId)   
+                                           @for (int i = 0; i < Model.olcumNoktasi.Count; i++)
+                                           {
+                                           
+                                            <tr>
+                                                <td>@Model.olcumNoktasi[i]</td>
+
+                                               @for (int j = 0; j <count; j++)
+                                                {
+                                                    @Html.Hidden("sonuclar["+(j+ (count*i))+"].ParDerId",Model.sonuclar[j,i].ParDerId)
+                                                    @Html.Hidden("sonuclar["+(j+ (count*i))+"].OlcumNoktasiId",Model.sonuclar[j,i].OlcumNoktasiId)
+                                                    @Html.Hidden("sonuclar["+(j+ (count*i))+"].OlcumId",Model.sonuclar[j,i].OlcumId)
+                                                <td>@Html.TextBox("sonuclar["+(j+ (count)*i)+"].Deger", new {   required=""}) </td>
+                                                }
+                                            </tr>
+                                           }
+                                     
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+  <div class="panel-footer">
+                       <input type="submit" value="GÖNDER" />
+                 
+                </div>
+                 }  
+  

@@ -1,0 +1,103 @@
+﻿@model Calcom.Domain.Entities.BasBekleyenTestler
+
+<fieldset>
+    @Html.Hidden("bkvm.test.Id",Model.Id)
+        @Html.Hidden("bkvm.test.karid",Model.karid)
+            @Html.Hidden("bkvm.test.sira",Model.sira)
+
+    @Html.Hidden("bkvm.test.Karsilastirmalar.Id",Model.Karsilastirmalar.Id)
+    @Html.Hidden("bkvm.test.Karsilastirmalar.OlcumAletleri.Isim",Model.Karsilastirmalar.OlcumAletleri.Isim)
+<!-- Form Name -->
+<legend>@Model.Karsilastirmalar.OlcumAletleri.Isim</legend>
+ 
+        <div class="control-group">
+  <label class="control-label" for="baslangicZamani">Başlangıç Zamanı</label>
+ <div class="controls"> 
+                <div class='input-append date' id='baslangicZamani'>
+                        @Html.TextBox("bkvm.test.BaslangicZamani",Model.BaslangicZamani, new { @class="form-control", required="" , id="bitisZamani",   })
+                    <span class="add-on">
+                        <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+                    </span>
+           <p class="help-block">Testin başlangıç zamanını giriniz</p>     
+            </div>
+  </div>
+</div>
+            
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="BitisZamani">Bitiş Zamanı</label>
+  <div class="controls">
+    @Html.TextBox("bkvm.test.BitisZamani",Model.BitisZamani, new { @class="form-control" , required="" , id="bitisZamani" })<i data-time-icon="icon-time" data-date-icon="icon-calendar">
+      </i>
+    <p class="help-block">Testin bitiş zamanını giriniz</p>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="OlcumZamani">Ölçüm Başlama Zamanı</label>
+  <div class="controls">
+    @Html.TextBox("bkvm.test.OlcumZamani",Model.OlcumZamani, new { @class="form-control" , required="" , id="olcumZamani" })<i data-time-icon="icon-time" data-date-icon="icon-calendar">
+      </i>
+    <p class="help-block">Kalibrasyon ölçümlerinin başlangıç tarihini giriniz</p>
+  </div>
+</div>
+    
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="BitisZamani">Ölçüm Bitiş Zamanı</label>
+  <div class="controls">
+    @Html.TextBox("bkvm.test.OlcumBitisZamani",Model.OlcumBitisZamani, new { @class="form-control" , required="" , id="olcBitisZamani" })<i data-time-icon="icon-time" data-date-icon="icon-calendar">
+      </i>
+    <p class="help-block">Testin bitiş zamanını giriniz</p>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="Fiyat">Fiyat</label>
+  <div class="controls">
+          @Html.TextBox("bkvm.test.Fiyat",Model.Fiyat, new { @class="input-small" , required="" , id="fiyat" })
+
+    <p class="help-block">Test katılım fiyatını belirleyiniz</p>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="OlcumSuresi">Ölçüm Süresi</label>
+  <div class="controls">
+           @Html.TextBox("bkvm.test.OlcumSuresi",Model.OlcumSuresi, new { @class="input-mini" , required="" , id="moneyInput" })
+ 
+    <p class="help-block">Laboratuvarlara ölçüm yapması için verilen süreyi belirleyiniz</p>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="GerekenLabSayisi">Min. Lab. Sayısı</label>
+  <div class="controls">
+           @Html.TextBox("bkvm.test.GerekenLabSayisi",Model.GerekenLabSayisi, new { @class="input-mini" , required="" , id="minLab" })
+    <p class="help-block">Testin Devam etmesi için gerekli minimum lab sayısını belirtiniz</p>
+  </div>
+</div>
+    <div class="control-group">
+        <label class="control-label col-xs-2" for="radios">Yer Seçimi</label>
+        <div class="controls">
+    <label class="radio-inline" for="radios-0">
+      <input type="radio" name="bkvm.test.HesaplamaYontemi" id="radios-0" value="Z-Scr" checked="checked">
+      Z-Score
+    </label>
+    <label class="radio-inline" for="radios-1">
+      <input type="radio" name="bkvm.test.HesaplamaYontemi" id="radios-1" value="Zeta-Scr">
+      Zeta-Score
+    </label>
+      <label class="radio-inline" for="radios-2">
+      <input type="radio" name="bkvm.test.HesaplamaYontemi" id="radios-2" value="En">
+      En Değeri
+    </label>
+  </div>
+    </div>
+
+

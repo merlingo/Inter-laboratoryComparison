@@ -1,0 +1,62 @@
+﻿@model Calcom.Domain.Entities.OlcumAletleri
+<div class="form-group">
+        <label class="control-label col-xs-2">Isim</label>
+        <div class="col-xs-10">
+            @Html.TextBoxFor(x => x.Isim, new {   @class="form-control", placeholder="Isim", required="Lütfen Ölçüm Aleti için Geçerli Bir isim Giriniz" })
+        </div>
+    </div>
+<div class="form-group">
+        <label class="control-label col-xs-2">Imalatçı</label>
+        <div class="col-xs-10">
+            @Html.TextBoxFor(x => x.İmalatci, new {   @class="form-control", placeholder="Imalatçı" , required=""})
+        </div>
+    </div>
+
+<div class="form-group">
+        <label class="control-label col-xs-2">Seri No</label>
+        <div class="col-xs-10">
+            @Html.TextBoxFor(x => x.SeriNo, new {   @class="form-control", placeholder="Seri No" , required=""})
+        </div>
+    </div>
+<div class="form-group">
+        <label class="control-label col-xs-2">Sınıf</label>
+        <div class="col-xs-10">
+            @Html.TextBoxFor(x => x.Model, new {   @class="form-control", placeholder="Model" , required=""})
+        </div>
+    </div>
+<div class="form-group">
+        <label class="control-label col-xs-2">Birim</label>
+        <div class="col-xs-10">
+            @Html.TextBoxFor(x => x.Birim, new {   @class="form-control", placeholder="Birim" , required=""})
+        </div>
+    </div>
+<div class="form-group">
+        <label class="control-label col-xs-2">Bölüntü</label>
+        <div class="col-xs-10">
+            @Html.TextBoxFor(x => x.Bölüntü, new {   @class="form-control", placeholder="Bölüntü", required="" })
+        </div>
+    </div>
+<div class="form-group">
+        <label class="control-label col-xs-2">Cozunurluk</label>
+        <div class="col-xs-10">
+            @Html.TextBoxFor(x => x.Cozunurluk, new {   @class="form-control", placeholder="Cozunurluk" , required=""})
+        </div>
+    </div>
+<div class="form-group">
+        <label class="control-label col-xs-2">Kapasite</label>
+        <div class="col-xs-10">
+            @Html.TextBoxFor(x => x.Kapasite, new {   @class="form-control", placeholder="Kapasite" , required=""})
+        </div>
+    </div>
+<div class="form-group">
+        <label class="control-label col-xs-2">Seri No</label>
+        <div class="col-xs-10">
+            @Html.TextBoxFor(x => x.SeriNo, new {   @class="form-control", placeholder="Seri No" , required=""})
+        </div>
+    </div>
+<div class="form-group">
+        <label class="control-label col-xs-2">Tip</label>
+        <div class="col-xs-10">
+            @Html.TextBoxFor(x => x.Tip, new {   @class="form-control", placeholder="Tip" , required=""})
+        </div>
+    </div>

@@ -1,0 +1,61 @@
+﻿@model Calcom.Domain.Entities.Testler
+@{
+    ViewBag.Title = "Ayrinti";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-md-12">
+    <div class="panel-heading">
+        <h2>@Model.Karsilastirmalar.OlcumAletleri.Isim Karşılaştırması Ayrıntılı Bilgiler</h2>
+    </div>
+    <hr />
+    <div class="panel-body">
+      
+        <div class="row">
+            <p>Ölçüm Aleti Bilgileri</p>
+            @Html.DisplayFor(x=>x.Karsilastirmalar.OlcumAletleri)
+        </div>
+        <hr />
+        <div class="row">
+            <p>Karşılaştırma Bilgileri</p>
+            @Html.DisplayFor(x=>x.Karsilastirmalar)
+        </div>
+        <hr />
+        <div class="row">
+            <p>Katılan Laboratuvar Listesi</p>
+            <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Laboratuvar
+                            </th>
+                            <th>Çalışma Alanı
+                            </th>
+                            <th>Testdeki İsmi
+                            </th>
+                           <th>Ölçüm Zamanı
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (var t in Model.Olcumler)
+                        {
+                            <tr >
+                                <td> @t.Laboratuvarlar.Isim </td>
+                                <td>@t.Laboratuvarlar.CalismaAlani</td>
+                                            <td>@t.GeciciIsim</td>
+                                <td>@t.OlcumBaslangicZamani</td>
+
+                               
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+        </div>
+        <div class="row">
+            <a href="#" class="btn btn-danger btn-lg">IPTAL ET</a>
+
+
+        </div>
+    </div>
+</div>

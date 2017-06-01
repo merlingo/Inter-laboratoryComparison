@@ -1,0 +1,50 @@
+﻿@model CalCom.Web.Models.ParDegerler
+ @{int i = 0;
+   int k = 0;
+  
+   }
+<div id="parDegisen_"></div>
+@for (i = 0; i < Model.olcListesi.Count; i++)
+{
+   
+<div class="panel panel-default">
+   
+   <div class="panel-heading">Parametre Değeri:  @Html.TextBox("par["+i+"].ParametreDegeri", Model.olcListesi[i].ParDerId , new{ required=""} ) @Html.Hidden("par["+i+"].ParDerId", Model.olcListesi[i].ParDerId)@Html.Hidden("par["+i+"].karid", Model.olcListesi[i].karid)
+ <div class="panel-footer">
+           Ölçüm Noktası Sayısı: <input type="number" class="form-control" id="olc-sayi_@Model.olcListesi[i].ParDerId" onchange="degisim('@Model.olcListesi[i].ParDerId')"> 
+       </div>
+ </div> 
+    <span id="olc_nok_tab_@Model.olcListesi[i].ParDerId"></span>
+
+       <div class="panel-footer">
+   
+
+    </div>
+     </div>
+    
+}
+
+<script>
+   
+    
+        function degisim(pid) {
+            var e = $("#olc-sayi_" + pid).val();
+            alert(e);
+           
+            $.ajax(
+{
+    url: '/KarsilastirmaIslem/OlcNoktaPartial_Karisik',
+    type: "GET",
+    data: {
+        'sayi': e,
+        'parDerid': pid,
+        'sonOlcumNo': kaldigiYer
+    },
+    success: function (response) {
+        $("#olc_nok_tab_"+pid).html(response);
+        kaldigiYer = Number(kaldigiYer) + Number(e);
+    }
+});
+    }
+</script>
+   

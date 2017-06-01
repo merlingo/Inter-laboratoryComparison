@@ -1,0 +1,38 @@
+﻿@model CalCom.Web.Models.SonuclandırmaViewModel
+@{
+    ViewBag.Title = "Sonuc";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-md-12">
+    <div class="panel-heading">
+        <h2>Karşılaştırma Sonuçlandırma</h2>
+    </div>
+    <div class="panel-body">
+            <h3>Sonuc</h3>
+
+          <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                @foreach(var pd in Model.ParDer)
+                                {<th>@pd</th>
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var ok in Model.lsvm)
+                            {
+                                <tr>
+                                    <td> @ok.gLabName - @ok.LabName :  </td>
+                                    @foreach(var b in ok.Sonuclar)
+                                    {<td> @b.Deger
+                                    </td>
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+        </div>
+    <div class ="panel-heading">
+        @Html.ActionLink("Yayınla", "Yayınla", new { TestId = Model.TestId })
+    </div>
+    </div>

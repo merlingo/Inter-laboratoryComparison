@@ -1,0 +1,132 @@
+﻿@{
+    ViewBag.Title = "Haberler";
+    Layout = "~/Views/Shared/_admin_layout.cshtml";
+}
+  <!-- Content Wrapper. Contains page content -->
+        <section class="content-header">
+          <h1>
+         Genel Ayarlar
+          </h1>
+          <ol class="breadcrumb">
+            <li><i class="fa fa-dashboard"></i> Formlar</li>
+            <li><a href="GenelAyar"> Genel Ayar</a></li>
+            <li class="active"> Haberler</li>
+          </ol>
+        </section>
+
+        <section class="content">
+        
+          <!-- Default box -->
+        
+            <div class="row">
+                <div class="col-sm-9">
+                  <div class="box box-danger ">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">Haber Başlığı</h3>
+                        <div class="box-tools pull-right">
+                       </div>
+                     </div>
+                    <div class="box-body">
+                      <p> Haber içeriği </p>
+                     </div><!-- /.box-body -->
+                  </div>
+                </div>
+
+               <div class="col-sm-3">
+                  <div class="box box-danger ">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">Ölçüm Aleti Bilgileri</h3>
+                        <div class="box-tools pull-right">
+                       </div>
+                     </div>
+                    <div class="box-body">
+                      <p> istatistiksel ölçüm aleti bilgileri </p>
+                     </div><!-- /.box-body -->
+                  </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+        
+         <aside class="control-sidebar control-sidebar-dark">
+        <!-- Create the tabs -->
+      @*  <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+          <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-eye"></i></a></li>
+          <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa  fa-exchange"></i></a></li>
+        </ul>
+        <!-- Tab panes -->*@
+        <div class="tab-content">
+          <!-- Home tab content -->
+          <div class="tab-pane active" id="control-sidebar-home-tab">
+            <h3 class="control-sidebar-heading">İzlence</h3>
+            <ul class="control-sidebar-menu">
+             
+              <li>
+                <a href="Haberler">
+                  <i class="menu-icon fa fa-line-chart bg-yellow"></i>
+                  <div class="menu-info">
+                    <h4 class="control-sidebar-subheading">Haberler</h4>
+                    <p>Kalibrasyon takviminin izlenmesi</p>
+                  </div>
+                </a>
+              </li>
+             @* <li>
+                <a href="javascript::;">
+                  <i class="menu-icon fa fa-flask bg-light-blue"></i>
+                  <div class="menu-info">
+                    <h4 class="control-sidebar-subheading"></h4>
+                    <p>Şimdiye kadar yapılan ölçümler ve sonrası</p>
+                  </div>
+                </a>
+              </li>*@
+              <li>
+                <a href="Protokoller">
+                  <i class="menu-icon fa fa-balance-scale bg-red"></i>
+                  <div class="menu-info">
+                    <h4 class="control-sidebar-subheading">Protokoller</h4>
+                    <p>Laboratuvarlara gönderilen ölçüm aletinin durumu</p>
+                  </div>
+                </a>
+              </li>
+               
+                 <li>
+                <a href="Standardlar">
+                  <i class="menu-icon fa fa-balance-scale bg-red"></i>
+                  <div class="menu-info">
+                    <h4 class="control-sidebar-subheading">Standartlar</h4>
+                    <p>Karşılaştırma için performans skorunun belirlenmesi</p>
+                  </div>
+                </a>
+                </li>
+                 <li>
+                <a href="Reklamlar">
+                  <i class="menu-icon fa fa-flask bg-light-blue"></i>
+                  <div class="menu-info">
+                    <h4 class="control-sidebar-subheading">Reklamlar</h4>
+                    <p>Bulunan sonuçların grafiklendirilmesi</p>
+                  </div>
+                </a>
+              </li>
+                 <li>
+                <a href="Bildirimler">
+                  <i class="menu-icon fa fa-line-chart bg-yellow"></i>
+                  <div class="menu-info">
+                    <h4 class="control-sidebar-subheading">Bildirimler</h4>
+                    <p>Raporların hazırlanması ve yayınlanması</p>
+                  </div>
+                </a>
+              </li>
+            </ul><!-- /.control-sidebar-menu -->
+
+
+          </div>
+        </div>
+      </aside><!-- /.control-sidebar -->
+      <div class="control-sidebar-bg"></div>
+
+<script>
+    var sekme = document.getElementById("formlar_sekme");
+    sekme.classList.add("active"); 
+</script>

@@ -1,0 +1,34 @@
+﻿@model CalCom.Web.Models.BaslatOzet
+<div class="col-sm-4">
+    <div class="panel panel-info">
+        <div class="panel-heading" id="@Model.isim">
+            @Model.isim
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+
+                    <tbody>
+                        <tr>
+                            <th>Gerekli Lab Sayısı</th>
+                            <td>@Model.gerekenLabSayisi</td>
+                            <th>Ölçüm Süresi</th>
+                            <td>@Model.olcumSuresi</td>
+                        </tr>
+                        <tr>
+                            <th>Başlangıç Zamanı</th>
+                            <td>@Model.baslangicZaman</td>
+                            <th>Bitiş Zamanı</th>
+                            <td>@Model.bitisZaman</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="panel-footer">
+            @Model.fiyat TL
+        </div>
+    </div>
+
+</div>

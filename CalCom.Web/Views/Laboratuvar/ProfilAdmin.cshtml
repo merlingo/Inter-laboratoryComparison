@@ -1,0 +1,48 @@
+﻿@model CalCom.Web.Models.Laboratuvar.LaboratuvarViewModel
+@{
+    ViewBag.Title = "ProfilAdmin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="panel-heading">
+        <h2>Ön Panel</h2>
+    </div>
+    <div class="panel-body">
+        Genel sayfa. ilk ekran burası -  en çok kullanılan sayfalara kısa yol, bildirimler ve mesajlar bu sayfaya düşecektir.
+    
+
+        @Html.ActionLink("Kayıt Bekleyen Laboratuvarlar","KayitBekleyenLablar","Uyelik")
+
+         <div class="panel-body">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#home" data-toggle="tab" >Profil</a>
+                                </li>
+                                <li class=""><a href="#profile" data-toggle="tab">Takvim</a>
+                                </li>
+                                <li class=""><a href="#messages" data-toggle="tab">Referans Cihazlar</a>
+                                </li>
+                               
+                               
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane fade active in" id="home">
+                                    <h4>Profil</h4>
+                                    @Html.DisplayFor(x=>x.lab)
+                                  
+                                      </div>
+                                
+                                <div class="tab-pane fade" id="profile">
+                                    <h4>Takvim</h4>
+                                        @Html.DisplayFor(x=>x.takvim)
+                                      </div>
+                                <div class="tab-pane fade" id="messages">
+                                    <h4>Referans Cihazlar</h4>
+                                        
+                                        </div>
+                                
+                            </div>
+                        </div>
+        </div>
+</div>

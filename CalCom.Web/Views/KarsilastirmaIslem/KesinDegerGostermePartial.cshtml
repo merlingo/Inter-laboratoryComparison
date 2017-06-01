@@ -1,0 +1,19 @@
+﻿  @model CalCom.Web.Models.KesinDegerAtamaViewModel
+
+<p style="text-align:center"> xxx @Model.yontem xxx</p>
+<table class="table">
+   <thead> <tr><th>Parametre Degeri</th><th>Olcum No</th><th>Referans Değer</th><th>Belirsizlik</th></tr>
+       </thead>
+    <tbody>
+    @for (int i = 0; i < Model.Atamalar.Count;i++ )
+    {
+        <tr><td>@Model.Atamalar[i].ParametreDegeri </td> 
+            <td>@Model.Atamalar[i].OlcumNoktasi</td>
+             <td>@Model.Atamalar[i].KesinDeger</td> <td> @Model.Atamalar[i].Belirsizlik </td></tr>
+    }
+        </tbody>
+ </table>
+     <Button id="dgstr" type="submit" title="SEÇ"   onclick="degistir(@Model.testid)">DEĞİŞTİR</Button>
+
+<p> Kesin Değerler atanmıştır. Değiştirmek için yeni sayfaya yönlendirilecektir.
+</p>

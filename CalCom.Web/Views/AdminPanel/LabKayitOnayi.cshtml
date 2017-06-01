@@ -1,0 +1,65 @@
+﻿@model CalCom.Web.Models.AdminPanel.LaboratuvarKayitlariViewModel
+
+ <div class="modal-dialog" >
+
+    <!-- Modal content-->
+    <div class="modal-content" >
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Lab Kayıt Onayı</h4>
+      </div>
+        @using (Html.BeginForm("LabKayitOnayi","AdminPanel",FormMethod.Post))
+{
+ 
+      <div class="modal-body">
+        <!--Laboratuvar listesi içerisinde kayıt bekleyen labların sağda onaylama butonu olur,  -->
+           <table class="table table-hover">
+               <div class="callout callout-info">
+              <h4>İpucu!</h4>       
+
+<p> Bu ekran ile sisteme kayıt olan laboratuvarlar onaylanarak faydalanmaları sağlanır </p>   
+               </div> @if (Model.LabList.Count == 0)
+                                                                                              {
+                                                                                                 <div class="callout callout-danger">   
+                                                                                                     <p><b>UYARI:</b>Sisteme yeni kayıtlı ve onay bekleyen laboratuvar bulunmamaktadır</p>
+                                                                                                       </div>
+                                                                                              }
+                    <tbody><tr>
+                      <th>Amblem</th>
+                      <th>Laboratuvar</th>
+                      <th>Yönetici</th>
+                        <th>Çalışma Alanı</th>
+                      <th>Telefon</th>
+                        <th>E-Mail</th> 
+                      <th>Kayıt Tarihi</th>
+                        <th>Onay</th>
+                    </tr>
+                 
+                 
+                   
+                  
+    @for(int i=0;i<Model.LabList.Count;i++){
+         <tr id="@Model.LabList[i].Id">
+                        <td><img src="@Model.LabList[i].AmblemPath" /> @Html.Hidden("lab.LabList["+i+"].Id")</td>
+                          <td>@Model.LabList[i].Isim</td>
+                          <td>@Model.LabList[i].Yonetici</td>
+                          <td>@Model.LabList[i].CalismaAlani</td>
+                          <td>@Model.LabList[i].Tel</td>
+                          <td>@Model.LabList[i].Mail</td>
+                          <td>@Model.LabList[i].KayitTarihi</td>
+
+                    <td>
+            <label class="">
+                      <div class="icheckbox_minimal-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" class="minimal" style="position: absolute; opacity: 0;" name="lab.LabList[i].KayitliMi"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                    </label></td></tr>}
+
+                    </tbody></table>
+             </div>
+            <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                   <button type="submit" class="btn btn-success">Onayla</button>
+                  </div>
+  } 
+    </div>
+
+  </div>

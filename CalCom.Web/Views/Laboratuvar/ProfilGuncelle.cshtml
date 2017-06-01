@@ -1,0 +1,59 @@
+﻿@model Calcom.Domain.Entities.Laboratuvarlar
+@{
+    ViewBag.Title = "Laboratuvar";
+    ViewBag.Lab = "UMS";
+    ViewBag.Yonetici = "Mert Nar";
+    ViewBag.CalismaAlani = "Demir Çelik Kalibrasyonu";
+    ViewBag.ImagePath = "../../dist/img/user2-160x160.jpg";
+}
+        <div class="container">
+          <!-- Content Header (Page header) -->
+          <section class="content-header">
+            <h1>
+             Laboratuvar
+              
+            </h1>
+            <ol class="breadcrumb">
+                <li class="active"><i class="fa fa-dashboard"></i> Laboratuvar</li>
+              
+            </ol>
+          </section>
+
+          <!-- Main content -->
+          <section class="content"> <!-- renderBody() buraya gelecek, içerik burada değişecek hatta eğer ihtiyaç duyulursa "content-wrapper" dan da alınabilir. Çünkü her sayfa için değişecek yan menüyü sayfalara alırız.-->
+            <div class="row"> 
+             <div class="col-sm-3"> 
+                 
+                     <ul  class="nav nav-pills nav-stacked">
+                        <li class="active"><a href="#LabPanel" >Bilgiler</a></li>
+                        <li><a href="LabTakvim"> Takvim</a></li>
+                        <li><a href="ReferansCihazlar">Referans Cihazlar</a></li>
+
+                    </ul>
+                 
+              </div> 
+            <div class="col-sm-9">
+                  <div class="box box-default tab-pane fade active in" id="LabPanel">
+                     <div class="box-header with-border">
+                     <h3 class="box-title">Laboratuvar Bilgileri</h3>
+                     </div>
+                                            @using( Html.BeginForm("ProfilGuncelle","Laboratuvar",FormMethod.Post)){
+
+                     <div class="box-body ">
+                          @Html.EditorFor(x=>x)
+                    </div> <!-- /.box-body -->
+                   <div class="box-footer"> 
+                                  <button type="submit">KAYDET</button>
+                   </div>}
+                 </div><!-- /.box -->
+                 
+            </div>
+        </div>  
+
+          </section><!-- /.content -->
+      
+        </div><!-- /.container -->
+
+
+
+

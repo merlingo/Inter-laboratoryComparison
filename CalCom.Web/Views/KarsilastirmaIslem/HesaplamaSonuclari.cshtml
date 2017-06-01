@@ -1,0 +1,91 @@
+﻿@model CalCom.Web.Models.OlcumSonuclariViewModel
+@{
+    ViewBag.Title = "OlcumSonucları";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="panel-heading">
+        <h2>Karşılaştırma Sonuçlandırma</h2>
+    </div>
+   
+    @{ int k=0;
+    <div class="panel-body">
+        <h3> @Model.KarName Ölçüm Sonuçları @Html.Hidden("osvm.TestId",Model.TestId)</h3> 
+        Ölçüm sonuçları gösterilecek, sırayla gelecek bu sayfa her lab için. 
+        <p>  @Model.yontem </p> 
+           @foreach(var pd in Model.ParDerler ){
+              
+               
+                <div id="pd_@pd.ParDerId" class="panel panel-primary">
+                        <div class="panel-heading">
+                             @pd.ParametreDegeri 
+                                                   
+                                                      
+                        </div>
+                        <div class="panel-body">
+                            
+                            <div class="table-responsive table-bordered">
+                                      <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Lab / Olç. Noktası</th>
+                                              @foreach (var on in pd.OlcumNoktalari)
+                                              {
+                                                  <th>@on.OlcumNoktasi</th><th>Belirsizliği</th> <th>Performans Skoru</th>
+                                              }
+                                      </tr>
+                                    </thead>
+
+                                    <tbody> 
+                                        <tr><td>Ref. Lab.</td>
+                                            @foreach (var on in pd.OlcumNoktalari)
+                                            {
+                                               
+                                                    foreach (var kd in on.KesinDegerler)
+                                                    {
+                                                      if(kd.Testid==Model.TestId)
+                                                         { 
+                                                           <td>@kd.Deger</td><td>@kd.Belirsizlik</td><td> -</td>
+                                                         }
+                                                    }
+                                            }
+                                             </tr>
+                                        
+                                             @for (int i=0; i<Model.Lablar.Count;i++)
+                                             {
+                                                 int j = k; 
+                                                 <tr><td>@Model.Lablar[i]</td>
+                                                    
+                                                     @foreach(var on in pd.OlcumNoktalari)
+                                                     {
+                                                         <td>@on.OlcumSonuclari.Select(x => x).Where(y => y.OlcumId == Model.Olcumler[i].Olcid).Single().Deger</td>
+                                                         <td>@on.OlcumSonuclari.Select(x => x).Where(y => y.OlcumId == Model.Olcumler[i].Olcid).Single().Belirsizlik</td>
+                                                         <td>@Model.Olcumler[j].PerformanceScore </td>
+                                                         j++;
+                                                     }
+                                                 </tr>
+                                                 k = k + j;
+                                                 
+                                             }
+                                               
+                                            
+                                    </tbody>
+                                </table>
+                                <div><div id="morris-line-chart"></div></div>
+                       
+                    </div>
+          
+
+        </div>
+    </div>
+                                            
+           }
+        <div class="panel-footer">
+            <button>KAYDET</button>
+              </div>
+
+               </div>
+    }
+    
+               </div>

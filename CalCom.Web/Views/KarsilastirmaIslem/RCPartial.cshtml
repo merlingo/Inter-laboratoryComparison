@@ -1,0 +1,23 @@
+﻿@model Calcom.Domain.Entities.ReferansCihazlar
+<table>
+    <tbody>
+        <tr>@Html.Hidden("oaid",Model.Id)
+            <th style="margin-right:10px;">Imalatçı </th>
+            <td>@Model.Imalatci</td>
+            </tr>
+        <tr>
+            <th style="margin-right:10px;">Konu </th>
+            <td>@Model.Konu</td>
+        </tr>
+        <tr>
+                        <th style="margin-right:10px;">SeriNo </th>
+
+            <td>@Model.SeriNo</td>
+                        </tr>
+        <tr>
+            <th style="margin-right:10px;">Sinif </th>
+
+            <td>@Model.Sinif</td>
+                                                        </tr>
+    </tbody>
+</table>

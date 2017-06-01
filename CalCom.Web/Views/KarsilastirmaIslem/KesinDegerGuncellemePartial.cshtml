@@ -1,0 +1,21 @@
+﻿   @model CalCom.Web.Models.KesinDegerAtamaViewModel
+@using(Html.BeginForm("SonucListesi","KarsilastirmaIslem",FormMethod.Post )){
+
+<p style="text-align:center">@Html.Hidden("kdavm.testid", Model.testid) @Html.RadioButton("kdavm.yontem","Ref- Lab", true) Ref- Lab - @Html.RadioButton("kdavm.yontem","Ortalama") Ortalama</p>
+<table>
+   <thead> <tr><th>Parametre Degeri</th><th>Olcum No</th><th>Referans Değer</th><th>Belirsizlik</th></tr>
+       </thead>
+    <tbody>
+    @for (int i = 0; i < Model.Atamalar.Count;i++ )
+    {
+        <tr><td>@Model.Atamalar[i].ParametreDegeri  @Html.Hidden("kdavm.Atamalar["+i+"].ParametreDegeri",Model.Atamalar[i].ParametreDegeri)</td> 
+      @Html.Hidden(  "kdavm.atamaDurum",Model.atamaDurum)    <td>@Model.Atamalar[i].OlcumNoktasi @Html.Hidden("kdavm.Atamalar["+i+"].OlcumNoktasi",Model.Atamalar[i].OlcumNoktasi)</td>
+             <td>@Html.TextBox("kdavm.Atamalar["+i+"].KesinDeger",Model.Atamalar[i].KesinDeger)  @Html.Hidden("kdavm.Atamalar["+i+"].Onid",Model.Atamalar[i].Onid)</td> <td> @Html.TextBox("kdavm.Atamalar["+i+"].Belirsizlik",Model.Atamalar[i].Belirsizlik)  @Html.Hidden("kdavm.Atamalar["+i+"].id",Model.Atamalar[i].id)</td></tr>
+    }
+        </tbody>
+ </table>
+     <input id="ony" type="submit" value="ATA" title="SEÇ"  /> <button onclick="iptal(@Model.testid)">IPTAL</button>
+}
+<p> Kesin değerleri girilip onaylandıktan sonra içerideki form yine aynı sayfanın postunu çağıracaktır ve aynı sayfa açılacaktır. kullanıcı yine aynı sayfayı girecektir. yeni değişen kesin değer 
+    renklendirilecektir.
+</p>

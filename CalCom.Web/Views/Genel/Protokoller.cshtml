@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Protokoller";
+   ViewBag.Lab = "UMS";
+    ViewBag.Yonetici = "Mert Nar";
+    ViewBag.CalismaAlani = "Demir Çelik Kalibrasyonu";
+    ViewBag.ImagePath = "../../dist/img/user2-160x160.jpg";
+}
+        <div class="container">
+          <!-- Content Header (Page header) -->
+          <section class="content-header">
+            <h1>
+             Protokoller
+              
+            </h1>
+            <ol class="breadcrumb">
+                <li><i class="fa fa-dashboard"></i><a href="~/Genel/Anasayfa"> Ana Sayfa</a></li>
+              <li class="active"> Protokoller</li>
+            </ol>
+          </section>
+
+          <!-- Main content -->
+          <section class="content"> <!-- renderBody() buraya gelecek, içerik burada değişecek hatta eğer ihtiyaç duyulursa "content-wrapper" dan da alınabilir. Çünkü her sayfa için değişecek yan menüyü sayfalara alırız.-->
+            <div class="row"> 
+             <div class="col-sm-3">     
+                     <ul class="nav nav-pills nav-stacked">
+                        <li role="presentation"><a href="LabPanel">Kontrol Paneli</a></li>
+                        <li role="presentation"  ><a href="Haberler"> Haberler</a></li>
+                        <li role="presentation" class="active"><a href="Protokoller">Protokoller</a></li>
+                        <li role="presentation"><a href="Standardlar">Standartlar</a></li>
+                        <li role="presentation"><a href="Bildirimler">Bildirimler</a></li>
+                    </ul>
+              </div> 
+                <div class="col-sm-9">
+                <div class="callout callout-info">
+              <h4>İpucu!</h4>
+              <p>Laboratuvarın sisteme girdiğinde ilk göreceği ekrandır. Bu ekranda sistemle alakalı genel bilgilendirme yapılabilir ya da sistem sayesinde işleyeceği bilgilerin özeti mahiyetinde bir bilgilendirme yapılabilir. Ne gösterileceğine yönetici karar verecektir.</p>
+            </div>
+            <div class="callout callout-danger">
+              <h4>Uyarı!</h4>
+              <p>Bu giriş ekranı genel sistem hakkında genel bir kanı ya da hüküm içermez. Sadece sisteme ilk girildiğinde kullanıcın göreceği ekrandır. Göz ardı edilebilir veya sistem arayüzünden çıkarılabilir; tamamen statiktir ve altyapı ile bir bağlantısı yoktur.</p>
+            </div>
+            <div class="box box-default">
+              <div class="box-header with-border">
+                <h3 class="box-title">LAKSIS</h3>
+              </div>
+              <div class="box-body">
+                Laboratuvarlar Arası Karşılaştırmalar ve Yeterlilik Testleri Yönetim Sistemi
+              </div><!-- /.box-body -->
+            </div><!-- /.box -->
+
+                </div>
+        </div>  
+
+          </section><!-- /.content -->
+      
+        </div><!-- /.container -->

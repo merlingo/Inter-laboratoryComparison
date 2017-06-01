@@ -1,0 +1,39 @@
+﻿@model Calcom.Domain.Entities.Karsilastirmalar
+@{
+    ViewBag.Title = "KarsilastirmaBilgileri";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="panel-heading">
+        <h2>Karşılaştırma Ekleme</h2>
+    </div>
+     <div class="row"> Navigation noktaları </div>
+    <div class="panel-body">
+      
+<div class="panel panel-default">
+                        <div class="panel-heading">
+                            Karşılaştırma Bilgileri
+                        </div>
+                        <div class="panel-body">
+                             @using (Html.BeginForm("ÖlçümDeğerleri", "KarsilastirmaIslem", Model, FormMethod.Get, new { @class="form-horizontal" }))
+                             {
+                                    
+                                    <hr />
+                                      <div class="row">
+                                     @Html.EditorFor(x => x)
+                                          </div>
+                                      <div class="row">
+                                          <div class="form-group">
+        <div class="col-xs-offset-2 col-xs-10">
+            <button type="submit" class="btn btn-primary btn-lg pull-right">KAYDET</button>
+        </div>
+    </div>
+ 
+                          </div>
+                                
+                             }
+                            </div>
+    </div>
+        </div>
+    </div>

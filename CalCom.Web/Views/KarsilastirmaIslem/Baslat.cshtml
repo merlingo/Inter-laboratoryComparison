@@ -1,0 +1,160 @@
+﻿@model CalCom.Web.Models.BaslatViewModel
+@{
+    ViewBag.Title = "Baslat";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+ 
+<div class="col-md-12">
+    <div class="panel-heading">
+        <h2>Karşılaştırma Başlatma</h2>
+    </div>
+    <!-- bootstrap - form elements başlangıcı-->
+  @using (Html.BeginForm("Baslat", "KarsilastirmaIslem", FormMethod.Post, new { @class = "form-horizontal" })){
+<fieldset>
+    @Html.Hidden("bvm.bbt.karid",Model.bbt.karid)
+    @Html.Hidden("bvm.bbt.Karsilastirmalar.Id",Model.bbt.Karsilastirmalar.Id)
+    @Html.Hidden("bvm.bbt.Karsilastirmalar.OlcumAletleri.Isim",Model.bbt.Karsilastirmalar.OlcumAletleri.Isim)
+    @Html.Hidden("bvm.bd", Model.bd)
+<!-- Form Name -->
+<legend>@Model.bbt.Karsilastirmalar.OlcumAletleri.Isim</legend>
+ 
+        <div class="control-group">
+  <label class="control-label" for="baslangicZamani">Başlangıç Zamanı</label>
+ <div class="controls"> 
+                <div class='input-append date' id='baslangicZamani'>
+                        @Html.TextBox("bvm.bbt.BaslangicZamani",Model.bbt.BaslangicZamani, new { @class="form-control", required="" , id="bitisZamani",   })
+                    <span class="add-on">
+                        <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+                    </span>
+           <p class="help-block">Testin başlangıç zamanını giriniz</p>     
+            </div>
+  </div>
+</div>
+            
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="BitisZamani">Bitiş Zamanı</label>
+  <div class="controls">
+    @Html.TextBox("bvm.bbt.BitisZamani",Model.bbt.BitisZamani, new { @class="form-control" , required="" , id="bitisZamani" })<i data-time-icon="icon-time" data-date-icon="icon-calendar">
+      </i>
+    <p class="help-block">Testin bitiş zamanını giriniz</p>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="OlcumZamani">Ölçüm Başlama Zamanı</label>
+  <div class="controls">
+    @Html.TextBox("bvm.bbt.OlcumZamani",Model.bbt.OlcumZamani, new { @class="form-control" , required="" , id="olcumZamani" })<i data-time-icon="icon-time" data-date-icon="icon-calendar">
+      </i>
+    <p class="help-block">Kalibrasyon ölçümlerinin başlangıç tarihini giriniz</p>
+  </div>
+</div>
+    
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="BitisZamani">Ölçüm Bitiş Zamanı</label>
+  <div class="controls">
+    @Html.TextBox("bvm.bbt.OlcumBitisZamani",Model.bbt.OlcumBitisZamani, new { @class="form-control" , required="" , id="olcBitisZamani" })<i data-time-icon="icon-time" data-date-icon="icon-calendar">
+      </i>
+    <p class="help-block">Testin bitiş zamanını giriniz</p>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="Fiyat">Fiyat</label>
+  <div class="controls">
+          @Html.TextBox("bvm.bbt.Fiyat",Model.bbt.Fiyat, new { @class="input-small" , required="" , id="fiyat" })
+
+    <p class="help-block">Test katılım fiyatını belirleyiniz</p>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="OlcumSuresi">Ölçüm Süresi</label>
+  <div class="controls">
+           @Html.TextBox("bvm.bbt.OlcumSuresi",Model.bbt.OlcumSuresi, new { @class="input-mini" , required="" , id="moneyInput" })
+ 
+    <p class="help-block">Laboratuvarlara ölçüm yapması için verilen süreyi belirleyiniz</p>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="GerekenLabSayisi">Min. Lab. Sayısı</label>
+  <div class="controls">
+           @Html.TextBox("bvm.bbt.GerekenLabSayisi",Model.bbt.GerekenLabSayisi, new { @class="input-mini" , required="" , id="minLab" })
+    <p class="help-block">Testin Devam etmesi için gerekli minimum lab sayısını belirtiniz</p>
+  </div>
+</div>
+    <div class="control-group">
+        <label class="control-label col-xs-2" for="radios">Yer Seçimi</label>
+        <div class="controls">
+    <label class="radio-inline" for="radios-0">
+      <input type="radio" name="bvm.bbt.HesaplamaYontemi" id="radios-0" value="Z-Scr" checked="checked">
+      Z-Score
+    </label>
+    <label class="radio-inline" for="radios-1">
+      <input type="radio" name="bvm.bbt.HesaplamaYontemi" id="radios-1" value="Zeta-Scr">
+      Zeta-Score
+    </label>
+      <label class="radio-inline" for="radios-2">
+      <input type="radio" name="bvm.bbt.HesaplamaYontemi" id="radios-2" value="En">
+      En Değeri
+    </label>
+  </div>
+    </div>
+<!-- File Button --> 
+<div class="control-group">
+  <label class="control-label" for="Protokol">Protokol Yükle</label>
+  <div class="controls">
+@*       @Html.(m => m.Protokol, new { type = "file" , @class="input-file"}) *@
+  </div>
+</div>
+
+<!-- Button Drop Down -->
+<div class="control-group">
+  <label class="control-label" for="EskiTestler"></label>
+  <div class="controls">
+    <div class="input-append">
+      <input id="EskiTestler" name="EskiTestler" class="input-small" placeholder="Eski Testleri Görmek için..." type="text">
+      <div class="btn-group">
+        <button class="btn dropdown-toggle" data-toggle="dropdown">
+          Öncekiler
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            @while(Model.QueOncekiTest.Count > 0){ 
+          <li><a href="#">@Model.QueOncekiTest.Dequeue().isim</a></li>
+            }
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="control-group">
+  <label class="control-label" for="sonraki"></label>
+  <div class="controls">
+    <button id="sonraki" name="sonraki" class="btn btn-success">Sonraki</button>
+  </div>
+</div>
+
+</fieldset>
+    }
+
+    </div>
+
+<script type="text/javascript">
+            $(function () {
+                //$('#baslangicZamani').datepicker.parseDate("yy-mm-dd", "2007-01-26");
+                //$('#bitisZamani').datetimepicker();
+                //$('#olcumZamani').datetimepicker();
+
+            });
+
+        </script>

@@ -1,0 +1,63 @@
+﻿@model Calcom.Domain.Entities.Laboratuvarlar
+
+ <div class="form-group">
+        <label  class="control-label col-xs-5">Laboratuvar İsmi</label>
+        <div class="col-xs-7">
+            @Html.TextBoxFor(x => x.Isim, new {   @class="form-control", placeholder="Laboratuvar Adı", required="" })
+            @Html.HiddenFor(x=>x.Id)
+        </div>
+    </div>
+ <div class="form-group">
+        <label  class="control-label col-xs-5">Yönetici</label>
+        <div class="col-xs-7">
+            @Html.TextBoxFor(x => x.Yonetici, new {   @class="form-control", placeholder="Laboratuvar İşleri Sorumlu Kişi", required="" })
+        </div>
+    </div>
+ <div class="form-group">
+        <label  class="control-label col-xs-5">Çalışma Alanı</label>
+        <div class="col-xs-7">
+            @Html.TextBoxFor(x => x.CalismaAlani, new {   @class="form-control", placeholder="Laboratuvar Çalışma Alanı" })
+        </div>
+    </div>
+ <div class="form-group">
+        <label  class="control-label col-xs-5">Faks</label>
+        <div class="col-xs-7">
+            @Html.TextBoxFor(x => x.Faks, new {   @class="form-control", placeholder="Faks Numarası" , required=""})
+
+        </div>
+    </div>
+<div class="form-group">
+        <label  class="control-label col-xs-5">Telefon Numarası</label>
+        <div class="col-xs-7">
+            @Html.TextBoxFor(x => x.Telefon, new {   @class="form-control", placeholder="Laboratuvar Telefon Numarası" , required=""})
+
+        </div>
+    </div>
+ <div class="form-group">
+        <label  class="control-label col-xs-5">Cep Telefonu Numarası</label>
+        <div class="col-xs-7">
+            @Html.TextBoxFor(x => x.Gsm, new {   @class="form-control", placeholder="Sorumlu Kişinin Cep Telefonu Numarası" })
+
+        </div>
+    </div>
+ <div class="form-group">
+        <label  class="control-label col-xs-5">Vergi Dairesi Numarası</label>
+        <div class="col-xs-7">
+            @Html.TextBoxFor(x => x.VergiDairesiNo, new {   @class="form-control", placeholder="Vergi Dairesi Numarası" , required=""})
+
+        </div>
+    </div>
+<div class="form-group">
+        <label  class="control-label col-xs-5">Şehir</label>
+        <div class="col-xs-7">
+            @Html.TextBoxFor(x => x.Sehir, new {   @class="form-control", placeholder="Laboratuvarın Bulunduğu Şehir", required="" })
+
+        </div>
+    </div>
+<div class="form-group">
+        <label  class="control-label col-xs-5">Adres</label>
+        <div class="col-xs-7">
+            @Html.TextAreaFor(x => x.Adres, new {   @class="form-control", placeholder="Laboratuvar Kayıtlı Adresi", required="" })
+
+        </div>
+    </div>

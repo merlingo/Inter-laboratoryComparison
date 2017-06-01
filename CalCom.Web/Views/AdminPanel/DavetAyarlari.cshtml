@@ -1,0 +1,28 @@
+﻿
+ <div class="modal-dialog" >
+
+    <!-- Modal content-->
+    <div class="modal-content" >
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Davet Ayarları</h4>
+      </div>
+        @using (Html.BeginForm("OlcumAletiEkle","AdminPanel",FormMethod.Post))
+{
+ 
+      <div class="modal-body">
+        <div class="callout callout-info">
+              <h4>İpucu!</h4>       
+
+<p> Bu ekran başlatılan karşılaştırma için laboratuvarlara gönderilecek mail ile alakalıdır. Laboratuvar kendi ayarlarından her karşılaştırma için, referans cihaz ile alakalı olanlar için veya hiçbiri
+    seçeneklerinden birini seçer. Bu seçime göre her karşılaştırma başlatıldığında laboratuvarlara mail gönderilir. Gönderilecek mailin içeriği bu ekran ile ayarlanır.
+</p>            </div>    
+      </div>
+            <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                   <button type="submit" class="btn btn-success">Kaydet</button>
+                  </div>
+  } 
+    </div>
+
+  </div>

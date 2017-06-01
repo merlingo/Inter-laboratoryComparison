@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Giris";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="top-spacer"> 
+         <h2> Giriş </h2>  
+        </div>
+      </div>
+    </div> 
+  </div><!-- /cont -->
+  
+</div>
+
+
+<div class="container">
+ <div class="row">
+    <div class="col-md-12"> 
+      
+      <div class="panel">
+        <div class="panel-body">
+            
+
+            <div class="loginmodal-container">
+                <h3>Sistem Kayıt Denetimi</h3>
+					<br>
+                
+                    <p>@ViewBag.a</p>   
+				 @using(Html.BeginForm("Giris","Uyelik",FormMethod.Post)){
+				        @Html.TextBox("labismi","",new{ placeholder="Laboratuvar İsmi"})
+                        @Html.Password("sifre","",new{ placeholder="Şifre"}) 
+                     <p>   @Html.CheckBox("chk_Rememberme") beni hatırla</p>
+               @Html.AntiForgeryToken()
+               <input type="submit" value="Giriş"  id="Save"  class="login loginmodal-submit" />
+
+     }
+					
+				  <div class="login-help">
+					      @Html.ActionLink("Üye Olmak İçin Tıklayınız","uyeOl","Uyelik") - <a href="#">Şifreyi Unuttuysanız?</a>
+				  </div>
+				</div>
+
+
+
+ 
+      <br />
+ 
+             </div>
+      </div>
+                                                                                       
+	                                                
+                                                      
+   	</div><!--/col-12-->
+  </div>      
+    </div>
+        

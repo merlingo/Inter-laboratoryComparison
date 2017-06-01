@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "İşlemler";
+    ViewBag.Lab = "UMS";
+    ViewBag.Yonetici = "Mert Nar";
+    ViewBag.CalismaAlani = "Demir Çelik Kalibrasyonu";
+    ViewBag.ImagePath = "../../dist/img/user2-160x160.jpg";
+}
+        <div class="container">
+          <!-- Content Header (Page header) -->
+          <section class="content-header">
+            <h1>
+             İşlemler
+              
+            </h1>
+            <ol class="breadcrumb">
+                <li class="active"><i class="fa fa-dashboard"></i> İşlemler</li>
+              
+            </ol>
+          </section>
+
+          <!-- Main content -->
+          <section class="content"> <!-- renderBody() buraya gelecek, içerik burada değişecek hatta eğer ihtiyaç duyulursa "content-wrapper" dan da alınabilir. Çünkü her sayfa için değişecek yan menüyü sayfalara alırız.-->
+            <div class="row"> 
+             <div class="col-sm-3"> 
+                 
+                     <ul  class="nav nav-pills nav-stacked">
+                        <li ><a href="TestSeç" >Test-Kayıt</a></li>
+                        <li><a href="OlcumKarsilastirmalari"> Ölçüm</a></li>
+                        <li><a href="Analiz">Analiz</a></li>
+
+                    </ul>
+                 
+              </div> 
+            <div class="col-sm-9">
+                  <div class="box box-default tab-pane fade active in" id="LabPanel">
+                     <div class="box-header with-border">
+                     <h3 class="box-title">İşlemler Hakkında Bilgilendirme</h3>
+                     </div>
+                     <div class="box-body ">
+                       <p>Sistem üzerinden yapabileceğiniz işlemlere ulaşacağınız sayfadır.Yapabileceğiniz 3 farklı işlem vardır; Test Kayıt, Ölçüm, Analiz.</p>
+                         <p>
+                              Test-Kayıt sekmesinde, laboratuvarlar arası karşılaştırmaları düzenleyen ve  yöneten kurumun açtığı karşılaştırmalara kayıt olabilirsiniz. 
+                             Sayfayı açtığınızda göreceğiniz tablo, şuan devam etmekte olan ve kayıt süreci hala bitmemiş olan karşılaştırmaları listelemektedir. O
+                             karşılaştırmalardan katılmak istedikleğinizi seçip, gelecek ekranda da sizin için uygun olan tarihi belirterek kayıt olabilirsiniz. Daha sonrasında
+                             Yönetici seçtiğiniz tarihi onaylayarak veya farklı bir tarih belirleyerek karşılaştırma kaydınızı onaylamaktadır. Yöneticinin belirlediği tarihe
+                             itiraz etme hakkınız bulunmaktadır, fakat değiştiremezsiniz. Karşılaştırma takviminin oluşturulması için en etkin yolun bu olduğunu hatırlatarak,
+                             duyarlılığınız için teşekkür ederiz.
+
+                         </p>
+                         <p>
+                             Ölçüm sekmesinde katılmış olduğunuz karşılaştırmalar için kalibrasyon ölçümlerinin sisteme online olarak girişi sağlanmaktadır. 
+                         </p>
+                         <p>
+                             Analiz sekmesinde ise sonuçlanan karşılaştırmanın ayrıntılı analizini yapma, performans skorunuzu görme ve yöneticinin yönlendirmelerine ulaşabilme 
+                             imkanı sunulmaktadır.
+                         </p>
+                    </div><!-- /.box-body -->
+                 </div><!-- /.box -->
+                 
+            </div>
+        </div>  
+
+          </section><!-- /.content -->
+      
+        </div><!-- /.container -->

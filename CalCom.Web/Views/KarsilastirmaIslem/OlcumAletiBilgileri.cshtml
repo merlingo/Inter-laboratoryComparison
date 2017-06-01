@@ -1,0 +1,125 @@
+﻿@model CalCom.Web.Controllers.OlcumAletiBilgileriViewModel
+@{
+   ViewBag.Title = "Ölçüm";
+   ViewBag.Lab = "UMS";
+    ViewBag.Yonetici = "Mert Nar";
+    ViewBag.CalismaAlani = "Demir Çelik Kalibrasyonu";
+    ViewBag.ImagePath = "../../dist/img/user2-160x160.jpg";
+}
+        <div class="container">
+          <!-- Content Header (Page header) -->
+          <section class="content-header">
+            <h1>
+             İşlemler
+              
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="Islemler"><i class="fa fa-dashboard"></i> İşlemler</a></li>
+                <li class="active">Ölçüm</li>
+            </ol>
+          </section>
+
+          <!-- Main content -->
+          <section class="content"> <!-- renderBody() buraya gelecek, içerik burada değişecek hatta eğer ihtiyaç duyulursa "content-wrapper" dan da alınabilir. Çünkü her sayfa için değişecek yan menüyü sayfalara alırız.-->
+            <div class="row"> 
+             <div class="col-sm-3"> 
+                 
+                     <ul  class="nav nav-pills nav-stacked">
+                        <li ><a href="TestSeç" >Test-Kayıt</a></li>
+                        <li class="active"><a href="OlcumKarsilastirmalari"> Ölçüm</a></li>
+                        <li><a href="Analiz">Analiz</a></li>
+
+                    </ul>
+                 
+              </div> 
+            <div class="col-sm-9">
+                  <div class="box box-default tab-pane fade active in">
+                     <div class="box-header with-border">
+                     <h3 class="box-title">Ölçüm Aleti Bilgileri</h3>
+                     </div>
+                                           <div class="box-body ">
+                         @Html.DisplayFor(x=>x.oa)
+
+                           </div><!-- /.box-body -->
+                <div class="box-footer">
+                    @Html.ActionLink("İLERLE", "OrtamDegerleri", new { olcId = Model.getOlcId() }, new {@class="btn btn-default" })
+                </div>
+                       
+                   
+                 </div><!-- /.box -->
+                 
+            </div>
+        </div>  
+
+          </section>  <!-- /.content -->
+      
+        </div><!-- /.container -->
+
+
+
+
+
+
+
+
+
+
+
+@*
+
+<!-- masterhead in devamı -->
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="top-spacer"> 
+         <h2> Ölçüm Paneli</h2>  
+        </div>
+      </div>
+    </div> 
+  </div><!-- /cont -->
+  
+</div>
+
+
+<div class="container">
+    <div id="wrapper" class="fixed">
+
+       <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+				<li class="text-center">
+                    
+					</li>
+				
+					
+                    <li >
+                        @Html.ActionLink("Test Kayıt", "TestSeç", null, new { @class="active-menu sol "}) 
+                    </li>
+                    <li>
+                       @Html.ActionLink("Ölçüm","OlcumKarsilastirmalari", null, new { @class="active-menu sol linkactive" })
+                    </li>
+                  
+                </div>
+             </nav>
+                </div>
+ <div class="row">
+    <div class="col-md-12"> 
+      
+      <div class="panel">
+        <div class="panel-body">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                   Olcum Aleti Bilgileri
+                </div>
+                <div class="panel-body">
+                    @Html.DisplayFor(x=>x.oa)
+
+                           </div>
+                <div class="panel-footer">
+                    @Html.ActionLink("İLERLE", "OrtamDegerleri", new { olcId = Model.getOlcId() })
+                </div>
+                </div>
+            </div></div>
+        </div>
+     </div>
+    </div>*@

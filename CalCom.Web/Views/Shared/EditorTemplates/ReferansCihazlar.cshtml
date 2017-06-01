@@ -1,0 +1,26 @@
+﻿@model Calcom.Domain.Entities.ReferansCihazlar
+
+<div class="form-group">
+        <label class="control-label col-xs-2">Imalatçı</label>
+        <div class="col-xs-10">
+            @Html.TextBoxFor(x => x.Imalatci, new {   @class="form-control", placeholder="Imalatçı" , required=""})
+        </div>
+    </div>
+<div class="form-group">
+        <label class="control-label col-xs-2">Konu</label>
+        <div class="col-xs-10">
+            @Html.TextBoxFor(x => x.Konu, new {   @class="form-control", placeholder="Konu", required="" })
+        </div>
+    </div>
+<div class="form-group">
+        <label class="control-label col-xs-2">Seri No</label>
+        <div class="col-xs-10">
+            @Html.TextBoxFor(x => x.SeriNo, new {   @class="form-control", placeholder="Seri No" , required=""})
+        </div>
+    </div>
+<div class="form-group">
+        <label class="control-label col-xs-2">Sınıf</label>
+        <div class="col-xs-10">
+            @Html.TextBoxFor(x => x.Sinif, new {   @class="form-control", placeholder="Sınıf", required="" })
+        </div>
+    </div>

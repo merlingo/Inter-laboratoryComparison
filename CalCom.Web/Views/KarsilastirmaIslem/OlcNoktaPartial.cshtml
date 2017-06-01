@@ -1,0 +1,7 @@
+﻿@model CalCom.Web.Models.OlcNoktalar
+
+ @{int i = 0;}
+@for( i=0; i< Model.olcListesi.Count;i++){
+  <label>@(i+1) )</label> @Html.TextBox("olcler["+i+"].OlcumNoktasi1", Model.olcListesi[i].OlcumNoktasi1 , new{ required=""} )<br /> @Html.Hidden("olcler["+i+"].karid",Model.olcListesi[i].karid)
+   
+}

@@ -1,0 +1,54 @@
+﻿@model CalCom.Web.Models.Laboratuvar.LaboratuvarViewModel
+@{
+    ViewBag.Title = "Takvim";
+    ViewBag.Lab = "UMS";
+    ViewBag.Yonetici = "Mert Nar";
+    ViewBag.CalismaAlani = "Demir Çelik Kalibrasyonu";
+    ViewBag.ImagePath = "../../dist/img/user2-160x160.jpg";
+}
+        <div class="container">
+          <!-- Content Header (Page header) -->
+          <section class="content-header">
+            <h1>
+             Laboratuvar
+              
+            </h1>
+            <ol class="breadcrumb">
+                <li class="active"><a href="Index"><i class="fa fa-dashboard"></i> Laboratuvar</a></li>
+                <li class="active"> Almanak</li>
+            </ol>
+          </section>
+
+          <!-- Main content -->
+          <section class="content"> <!-- renderBody() buraya gelecek, içerik burada değişecek hatta eğer ihtiyaç duyulursa "content-wrapper" dan da alınabilir. Çünkü her sayfa için değişecek yan menüyü sayfalara alırız.-->
+            <div class="row"> 
+             <div class="col-sm-3"> 
+                   <nav role="navigation"> 
+                     <ul  class="nav nav-pills nav-stacked">
+                        <li ><a href="Index" >Bilgiler</a></li>
+                        <li class="active"><a href="LabTakvim" > Almanak</a></li>
+                        <li><a href="ReferansCihazlar">Referans Cihazlar</a></li>
+
+                    </ul>
+                  </nav> 
+              </div> 
+            <div class="col-sm-9">
+                  <div class="box box-default" id="LabTakvim">
+                      <div class="box-header with-border">
+                     <h3 class="box-title">Takvim</h3>
+                       </div>
+                       <div class="box-body ">
+                         
+                                
+                          </div>
+                                       @Html.DisplayFor(x=>x.takvim)
+                       </div>
+                  </div>
+            </div>
+        
+
+          </section><!-- /.content -->
+      
+        </div><!-- /.container -->
+
+

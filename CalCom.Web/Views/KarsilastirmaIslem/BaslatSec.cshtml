@@ -1,0 +1,98 @@
+﻿@model CalCom.Web.Models.BaslatilacakTestListesi
+@{
+    ViewBag.Title = "Başlat Seç";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="col-md-12">
+    <div class="panel-heading">
+        <h2>Karşılaştırma Başlatma</h2>
+
+    </div>
+    <div class="panel-body">
+        <h3>Uygun Karşılaştırmalar Listesi</h3>
+        @using (Html.BeginForm("Baslat", "KarsilastirmaIslem", FormMethod.Get))
+        {
+            @Html.Hidden("bd",CalCom.Web.Models.BasDurum.devam)
+            for (int k = 0; k < Model.tkler.Count;k++ )
+            {
+           
+
+             <p onclick="tabloGetir('@Model.tkler[k].konu')">   <i class="icon-plus" id="icon_@Model.tkler[k].konu" ></i>
+
+            <b>@Model.tkler[k].konu</b> @Html.Hidden("btl.tkler["+k+"].konu",Model.tkler[k].konu)</p>
+            <hr />
+                            
+            <span class="karTablo" id="karTablo_@Model.tkler[k].konu">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Ölçüm Aleti
+                            </th>
+                            <th>Seri No
+                            </th>
+                            <th>Model
+                            </th>
+                            <th>Çözünürlük
+                            </th>
+                            <th>Kapasite
+                            </th>
+                            <th>Ölçüm Aralığı Baş. Değ.
+                            </th>
+                            <th>Ölçüm Aralığı Bit. Değ.
+                            </th>
+                            <th>Tür
+                            </th>
+                            <th>Test Sayısı
+                            </th>
+                            <th>Seç
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @for (int i = 0; i < Model.tkler[k].basTestler.Count; i++)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(mz => mz.tkler[k].basTestler[i].OA.Isim) @Html.Hidden( "btl.tkler["+k+"].basTestler["+i+"].id",Model.tkler[k].basTestler[i].id) </td>
+                                <td>@Html.DisplayFor(mz => mz.tkler[k].basTestler[i].OA.SeriNo)</td>
+                                <td>@Html.DisplayFor(mz => mz.tkler[k].basTestler[i].OA.Model)</td>
+                                <td>@Html.DisplayFor(mz => mz.tkler[k].basTestler[i].OA.Cozunurluk)</td>
+                                <td>@Html.DisplayFor(mz => mz.tkler[k].basTestler[i].OA.Kapasite)</td>
+                                <td>@Html.DisplayFor(mz => mz.tkler[k].basTestler[i].olcumAraligi[0])</td>
+                                <td>@Html.DisplayFor(mz => mz.tkler[k].basTestler[i].olcumAraligi[1])</td>
+                                <td>@Html.DisplayFor(mz => mz.tkler[k].basTestler[i].Tür)</td>
+                                <td>@Html.DisplayFor(mz => mz.tkler[k].basTestler[i].kacDefa)</td>
+                                <td>@Html.CheckBox("btl.tkler["+k+"].basTestler["+i+"].secildiMi")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </span>
+            }
+                                  
+                                                     
+            <input type="submit" value="ONAYLA" title="SEÇ" />
+                   
+        }
+    </div>
+</div>
+
+
+<script>
+    var x=0;
+    var value = 0;
+    $(".karTablo").hide();
+    function tabloGetir(kn) {
+        if (x == 0) {
+            $("#icon_" + kn).toggleClass("icon-plus icon-minus");
+            if ($("#icon_" + kn).attr('class') == "icon-plus") { $("#karTablo_" + kn).hide(); }
+            else { $("#karTablo_" + kn).show(); }
+
+
+        }
+    }
+</script>

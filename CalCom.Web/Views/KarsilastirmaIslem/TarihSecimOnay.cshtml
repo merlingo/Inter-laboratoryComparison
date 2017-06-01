@@ -1,0 +1,11 @@
+﻿@model CalCom.Web.Models.KayitOnayViewModel
+<h2>Tarih Seçim Onay</h2>
+
+<p>@Model.TestName Karşılaştırmasının Ölçümünü @Model.dBas.ToShortDateString() ile  @Model.dBit.ToShortDateString() tarihleri arasında yapacağımı kaydet.</p>
+@using (Html.BeginForm("Kaydet","KarsilastirmaIslem",FormMethod.Post))
+{
+    @Html.HiddenFor(m=> m.TestId)
+        @Html.HiddenFor(m=> m.dBas)
+
+    <button>KAYDET</button>
+}

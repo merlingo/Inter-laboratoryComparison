@@ -1,0 +1,591 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CalComModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="CalComModelStoreContainer">
+    <EntitySet Name="BasBekleyenTestler" EntityType="CalComModel.Store.BasBekleyenTestler" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Dosyalar" EntityType="CalComModel.Store.Dosyalar" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="IslemGecmisleri" EntityType="CalComModel.Store.IslemGecmisleri" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Karsilastirmalar" EntityType="CalComModel.Store.Karsilastirmalar" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="KayitBekleyenLab" EntityType="CalComModel.Store.KayitBekleyenLab" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="KesinDegerler" EntityType="CalComModel.Store.KesinDegerler" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LabinReferansCihazlari" EntityType="CalComModel.Store.LabinReferansCihazlari" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Laboratuvarlar" EntityType="CalComModel.Store.Laboratuvarlar" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Mesajlar" EntityType="CalComModel.Store.Mesajlar" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OlcumAletleri" EntityType="CalComModel.Store.OlcumAletleri" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OlcumdekiReferansCihaz" EntityType="CalComModel.Store.OlcumdekiReferansCihaz" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Olcumler" EntityType="CalComModel.Store.Olcumler" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OlcumNoktalari" EntityType="CalComModel.Store.OlcumNoktalari" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OlcumSonuclari" EntityType="CalComModel.Store.OlcumSonuclari" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ParametreDegerleri" EntityType="CalComModel.Store.ParametreDegerleri" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PerformanceScores" EntityType="CalComModel.Store.PerformanceScores" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ReferansCihazlar" EntityType="CalComModel.Store.ReferansCihazlar" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StandartSapmalar" EntityType="CalComModel.Store.StandartSapmalar" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Testler" EntityType="CalComModel.Store.Testler" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_BasBekleyenTestler_Karsilastirmalar" Association="CalComModel.Store.FK_BasBekleyenTestler_Karsilastirmalar">
+      <End Role="Karsilastirmalar" EntitySet="Karsilastirmalar" />
+      <End Role="BasBekleyenTestler" EntitySet="BasBekleyenTestler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IG_Labo" Association="CalComModel.Store.FK_IG_Labo">
+      <End Role="Laboratuvarlar" EntitySet="Laboratuvarlar" />
+      <End Role="IslemGecmisleri" EntitySet="IslemGecmisleri" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KesinDegerler_OLC" Association="CalComModel.Store.FK_KesinDegerler_OLC">
+      <End Role="Testler" EntitySet="Testler" />
+      <End Role="KesinDegerler" EntitySet="KesinDegerler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KesinDegerler_OLCNk" Association="CalComModel.Store.FK_KesinDegerler_OLCNk">
+      <End Role="OlcumNoktalari" EntitySet="OlcumNoktalari" />
+      <End Role="KesinDegerler" EntitySet="KesinDegerler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabinReferansCihazlari_Laboratuvarlar" Association="CalComModel.Store.FK_LabinReferansCihazlari_Laboratuvarlar">
+      <End Role="Laboratuvarlar" EntitySet="Laboratuvarlar" />
+      <End Role="LabinReferansCihazlari" EntitySet="LabinReferansCihazlari" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LabinReferansCihazlari_ReferansCihazlar" Association="CalComModel.Store.FK_LabinReferansCihazlari_ReferansCihazlar">
+      <End Role="ReferansCihazlar" EntitySet="ReferansCihazlar" />
+      <End Role="LabinReferansCihazlari" EntitySet="LabinReferansCihazlari" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Msj_Labo" Association="CalComModel.Store.FK_Msj_Labo">
+      <End Role="Laboratuvarlar" EntitySet="Laboratuvarlar" />
+      <End Role="Mesajlar" EntitySet="Mesajlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OA_to_Karsilastirmalar" Association="CalComModel.Store.FK_OA_to_Karsilastirmalar">
+      <End Role="OlcumAletleri" EntitySet="OlcumAletleri" />
+      <End Role="Karsilastirmalar" EntitySet="Karsilastirmalar" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_OLC_LAB" Association="CalComModel.Store.Fk_OLC_LAB">
+      <End Role="Laboratuvarlar" EntitySet="Laboratuvarlar" />
+      <End Role="Olcumler" EntitySet="Olcumler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OlcumdekiReferansCihaz_LabinReferansCihazlari" Association="CalComModel.Store.FK_OlcumdekiReferansCihaz_LabinReferansCihazlari">
+      <End Role="LabinReferansCihazlari" EntitySet="LabinReferansCihazlari" />
+      <End Role="OlcumdekiReferansCihaz" EntitySet="OlcumdekiReferansCihaz" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OlcumdekiReferansCihaz_Olcumler" Association="CalComModel.Store.FK_OlcumdekiReferansCihaz_Olcumler">
+      <End Role="Olcumler" EntitySet="Olcumler" />
+      <End Role="OlcumdekiReferansCihaz" EntitySet="OlcumdekiReferansCihaz" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Olcumler_Testler" Association="CalComModel.Store.FK_Olcumler_Testler">
+      <End Role="Testler" EntitySet="Testler" />
+      <End Role="Olcumler" EntitySet="Olcumler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OlcumNoktalari_ParametreDegerleri" Association="CalComModel.Store.FK_OlcumNoktalari_ParametreDegerleri">
+      <End Role="ParametreDegerleri" EntitySet="ParametreDegerleri" />
+      <End Role="OlcumNoktalari" EntitySet="OlcumNoktalari" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OLcumSNClari_OLC" Association="CalComModel.Store.FK_OLcumSNClari_OLC">
+      <End Role="Olcumler" EntitySet="Olcumler" />
+      <End Role="OlcumSonuclari" EntitySet="OlcumSonuclari" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OLcumSNClari_OLCNk" Association="CalComModel.Store.FK_OLcumSNClari_OLCNk">
+      <End Role="OlcumNoktalari" EntitySet="OlcumNoktalari" />
+      <End Role="OlcumSonuclari" EntitySet="OlcumSonuclari" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ParDER_KAR" Association="CalComModel.Store.FK_ParDER_KAR">
+      <End Role="Karsilastirmalar" EntitySet="Karsilastirmalar" />
+      <End Role="ParametreDegerleri" EntitySet="ParametreDegerleri" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerformanceScores_OS" Association="CalComModel.Store.FK_PerformanceScores_OS">
+      <End Role="OlcumSonuclari" EntitySet="OlcumSonuclari" />
+      <End Role="PerformanceScores" EntitySet="PerformanceScores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StandartSapmalar_ParDerNk" Association="CalComModel.Store.FK_StandartSapmalar_ParDerNk">
+      <End Role="ParametreDegerleri" EntitySet="ParametreDegerleri" />
+      <End Role="StandartSapmalar" EntitySet="StandartSapmalar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StandartSapmalar_Testler" Association="CalComModel.Store.FK_StandartSapmalar_Testler">
+      <End Role="Testler" EntitySet="Testler" />
+      <End Role="StandartSapmalar" EntitySet="StandartSapmalar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tst_KAR" Association="CalComModel.Store.FK_Tst_KAR">
+      <End Role="Karsilastirmalar" EntitySet="Karsilastirmalar" />
+      <End Role="Testler" EntitySet="Testler" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BasBekleyenTestler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="karid" Type="int" />
+    <Property Name="BaslangicZamani" Type="datetime" />
+    <Property Name="BitisZamani" Type="datetime" />
+    <Property Name="OlcumZamani" Type="datetime" />
+    <Property Name="Fiyat" Type="money" />
+    <Property Name="ProtokolNo" Type="varchar" MaxLength="18" />
+    <Property Name="OlcumSuresi" Type="smallint" />
+    <Property Name="GerekenLabSayisi" Type="tinyint" />
+    <Property Name="OlcumBitisZamani" Type="datetime" />
+    <Property Name="HesaplamaYontemi" Type="nvarchar" MaxLength="10" />
+    <Property Name="sira" Type="int" />
+  </EntityType>
+  <EntityType Name="Dosyalar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="İsim" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="path" Type="varchar" MaxLength="370" />
+    <Property Name="Tur" Type="nchar" MaxLength="1" />
+    <Property Name="Açıklama" Type="nvarchar" MaxLength="100" />
+    <Property Name="İndirilmeSayisi" Type="int" />
+    <Property Name="Kod" Type="varchar" MaxLength="18" />
+  </EntityType>
+  <EntityType Name="IslemGecmisleri">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LabId" Type="int" Nullable="false" />
+    <Property Name="IslemAdi" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="IslemTipi" Type="varchar" MaxLength="15" />
+    <Property Name="IslemTarihi" Type="datetime" />
+    <Property Name="Aciklama" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Karsilastirmalar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OAId" Type="int" Nullable="false" />
+    <Property Name="Konu" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="OlcumAraligiBas" Type="float" Nullable="false" />
+    <Property Name="OlcumAraligiSon" Type="float" Nullable="false" />
+    <Property Name="InputSayisi" Type="int" />
+    <Property Name="FonksiyonNo" Type="int" />
+    <Property Name="Tur" Type="varchar" MaxLength="15" />
+    <Property Name="RehberDöküman" Type="varchar" MaxLength="50" />
+    <Property Name="ÖlçümVeriTipi" Type="varchar" MaxLength="15" />
+    <Property Name="EklenmeTarihi" Type="datetime" />
+  </EntityType>
+  <EntityType Name="KayitBekleyenLab">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Isim" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Yonetici" Type="varchar" MaxLength="50" />
+    <Property Name="CalismaAlani" Type="varchar" MaxLength="50" />
+    <Property Name="VergiDairesiNo" Type="bigint" />
+    <Property Name="Telefon" Type="bigint" />
+    <Property Name="Faks" Type="bigint" />
+    <Property Name="Gsm" Type="bigint" />
+    <Property Name="Sehir" Type="varchar" MaxLength="50" />
+    <Property Name="Bolge" Type="varchar" MaxLength="50" />
+    <Property Name="Adres" Type="nvarchar" MaxLength="500" />
+    <Property Name="Amblem" Type="image" />
+    <Property Name="Sifre" Type="varchar" MaxLength="75" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="KayitTarihi" Type="datetime" />
+  </EntityType>
+  <EntityType Name="KesinDegerler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Testid" Type="int" Nullable="false" />
+    <Property Name="OlcumNoktalariId" Type="int" Nullable="false" />
+    <Property Name="Deger" Type="float" />
+    <Property Name="Belirsizlik" Type="float" />
+    <Property Name="Yontem" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="LabinReferansCihazlari">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LabId" Type="int" Nullable="false" />
+    <Property Name="RefId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Laboratuvarlar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Isim" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Yonetici" Type="varchar" MaxLength="50" />
+    <Property Name="CalismaAlani" Type="varchar" MaxLength="50" />
+    <Property Name="VergiDairesiNo" Type="bigint" />
+    <Property Name="Telefon" Type="bigint" />
+    <Property Name="Faks" Type="bigint" />
+    <Property Name="Gsm" Type="bigint" />
+    <Property Name="Sehir" Type="varchar" MaxLength="50" />
+    <Property Name="Bolge" Type="varchar" MaxLength="50" />
+    <Property Name="Adres" Type="nvarchar" MaxLength="500" />
+    <Property Name="Amblem" Type="image" />
+    <Property Name="Sifre" Type="varchar" MaxLength="75" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="KayitTarihi" Type="datetime" />
+    <Property Name="OnayTarihi" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Mesajlar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LabId" Type="int" Nullable="false" />
+    <Property Name="Konu" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Tur" Type="bit" />
+    <Property Name="MesajTarihi" Type="datetime" />
+    <Property Name="Mesaj" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="OlcumAletleri">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Isim" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="SeriNo" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Model" Type="varchar" MaxLength="15" />
+    <Property Name="İmalatci" Type="varchar" MaxLength="30" />
+    <Property Name="Cozunurluk" Type="varchar" MaxLength="20" />
+    <Property Name="Kapasite" Type="float" />
+    <Property Name="Birim" Type="varchar" MaxLength="10" />
+    <Property Name="Bölüntü" Type="float" />
+    <Property Name="Tip" Type="nchar" MaxLength="20" />
+    <Property Name="EklenmeTarihi" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OlcumdekiReferansCihaz">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LrcId" Type="int" Nullable="false" />
+    <Property Name="OlcId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Olcumler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TestId" Type="int" Nullable="false" />
+    <Property Name="LabId" Type="int" Nullable="false" />
+    <Property Name="GeciciIsim" Type="varchar" MaxLength="3" />
+    <Property Name="GeciciSifre" Type="varchar" MaxLength="10" />
+    <Property Name="Sicaklik" Type="numeric" Precision="8" Scale="4" />
+    <Property Name="Nem" Type="numeric" Precision="8" Scale="4" />
+    <Property Name="Basinc" Type="numeric" Precision="8" Scale="4" />
+    <Property Name="OlcumBaslangicZamani" Type="datetime" />
+    <Property Name="OlcumSonZaman" Type="datetime" />
+    <Property Name="StandartSapma" Type="decimal" Scale="8" />
+    <Property Name="SabitSonuc" Type="float" />
+    <Property Name="OzelSonuc" Type="float" />
+    <Property Name="Durum" Type="varchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="OlcumNoktalari">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ParDerId" Type="int" Nullable="false" />
+    <Property Name="OlcumNoktasi" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="OlcumSonuclari">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OlcumId" Type="int" Nullable="false" />
+    <Property Name="OlcumNoktalariId" Type="int" Nullable="false" />
+    <Property Name="Deger" Type="float" />
+    <Property Name="Tarih" Type="datetime" />
+    <Property Name="Belirsizlik" Type="float" />
+  </EntityType>
+  <EntityType Name="ParametreDegerleri">
+    <Key>
+      <PropertyRef Name="ParDerId" />
+    </Key>
+    <Property Name="ParDerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="karid" Type="int" Nullable="false" />
+    <Property Name="ParametreDegeri" Type="varchar" MaxLength="25" />
+    <Property Name="Birim" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="PerformanceScores">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OlcumSonuclariId" Type="int" Nullable="false" />
+    <Property Name="Yontem" Type="nvarchar" MaxLength="15" />
+    <Property Name="Deger" Type="float" />
+    <Property Name="Hesap" Type="nvarchar" MaxLength="25" />
+    <Property Name="Yorumlama" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="ReferansCihazlar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Konu" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Imalatci" Type="nvarchar" MaxLength="50" />
+    <Property Name="SeriNo" Type="varchar" MaxLength="20" />
+    <Property Name="Sinif" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="StandartSapmalar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Testid" Type="int" Nullable="false" />
+    <Property Name="ParDerId" Type="int" Nullable="false" />
+    <Property Name="Deger" Type="float" />
+    <Property Name="Mean" Type="float" />
+    <Property Name="Yontem" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="Testler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="karid" Type="int" />
+    <Property Name="BaslangicZamani" Type="datetime" />
+    <Property Name="BitisZamani" Type="datetime" />
+    <Property Name="OlcumZamani" Type="datetime" />
+    <Property Name="OlcumBitisZamani" Type="datetime" />
+    <Property Name="Fiyat" Type="money" />
+    <Property Name="Durum" Type="varchar" MaxLength="10" />
+    <Property Name="ProtokolNo" Type="varchar" MaxLength="18" />
+    <Property Name="OlcumSuresi" Type="smallint" />
+    <Property Name="GerekenLabSayisi" Type="tinyint" />
+    <Property Name="HesaplamaYontemi" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK_BasBekleyenTestler_Karsilastirmalar">
+    <End Role="Karsilastirmalar" Type="CalComModel.Store.Karsilastirmalar" Multiplicity="0..1" />
+    <End Role="BasBekleyenTestler" Type="CalComModel.Store.BasBekleyenTestler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Karsilastirmalar">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BasBekleyenTestler">
+        <PropertyRef Name="karid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IG_Labo">
+    <End Role="Laboratuvarlar" Type="CalComModel.Store.Laboratuvarlar" Multiplicity="1" />
+    <End Role="IslemGecmisleri" Type="CalComModel.Store.IslemGecmisleri" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Laboratuvarlar">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IslemGecmisleri">
+        <PropertyRef Name="LabId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KesinDegerler_OLC">
+    <End Role="Testler" Type="CalComModel.Store.Testler" Multiplicity="1" />
+    <End Role="KesinDegerler" Type="CalComModel.Store.KesinDegerler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Testler">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="KesinDegerler">
+        <PropertyRef Name="Testid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KesinDegerler_OLCNk">
+    <End Role="OlcumNoktalari" Type="CalComModel.Store.OlcumNoktalari" Multiplicity="1" />
+    <End Role="KesinDegerler" Type="CalComModel.Store.KesinDegerler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OlcumNoktalari">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="KesinDegerler">
+        <PropertyRef Name="OlcumNoktalariId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabinReferansCihazlari_Laboratuvarlar">
+    <End Role="Laboratuvarlar" Type="CalComModel.Store.Laboratuvarlar" Multiplicity="1" />
+    <End Role="LabinReferansCihazlari" Type="CalComModel.Store.LabinReferansCihazlari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Laboratuvarlar">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LabinReferansCihazlari">
+        <PropertyRef Name="LabId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LabinReferansCihazlari_ReferansCihazlar">
+    <End Role="ReferansCihazlar" Type="CalComModel.Store.ReferansCihazlar" Multiplicity="1" />
+    <End Role="LabinReferansCihazlari" Type="CalComModel.Store.LabinReferansCihazlari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReferansCihazlar">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LabinReferansCihazlari">
+        <PropertyRef Name="RefId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Msj_Labo">
+    <End Role="Laboratuvarlar" Type="CalComModel.Store.Laboratuvarlar" Multiplicity="1" />
+    <End Role="Mesajlar" Type="CalComModel.Store.Mesajlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Laboratuvarlar">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mesajlar">
+        <PropertyRef Name="LabId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OA_to_Karsilastirmalar">
+    <End Role="OlcumAletleri" Type="CalComModel.Store.OlcumAletleri" Multiplicity="1" />
+    <End Role="Karsilastirmalar" Type="CalComModel.Store.Karsilastirmalar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OlcumAletleri">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Karsilastirmalar">
+        <PropertyRef Name="OAId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_OLC_LAB">
+    <End Role="Laboratuvarlar" Type="CalComModel.Store.Laboratuvarlar" Multiplicity="1" />
+    <End Role="Olcumler" Type="CalComModel.Store.Olcumler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Laboratuvarlar">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Olcumler">
+        <PropertyRef Name="LabId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OlcumdekiReferansCihaz_LabinReferansCihazlari">
+    <End Role="LabinReferansCihazlari" Type="CalComModel.Store.LabinReferansCihazlari" Multiplicity="1" />
+    <End Role="OlcumdekiReferansCihaz" Type="CalComModel.Store.OlcumdekiReferansCihaz" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LabinReferansCihazlari">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OlcumdekiReferansCihaz">
+        <PropertyRef Name="LrcId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OlcumdekiReferansCihaz_Olcumler">
+    <End Role="Olcumler" Type="CalComModel.Store.Olcumler" Multiplicity="1" />
+    <End Role="OlcumdekiReferansCihaz" Type="CalComModel.Store.OlcumdekiReferansCihaz" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Olcumler">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OlcumdekiReferansCihaz">
+        <PropertyRef Name="OlcId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Olcumler_Testler">
+    <End Role="Testler" Type="CalComModel.Store.Testler" Multiplicity="1" />
+    <End Role="Olcumler" Type="CalComModel.Store.Olcumler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Testler">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Olcumler">
+        <PropertyRef Name="TestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OlcumNoktalari_ParametreDegerleri">
+    <End Role="ParametreDegerleri" Type="CalComModel.Store.ParametreDegerleri" Multiplicity="1" />
+    <End Role="OlcumNoktalari" Type="CalComModel.Store.OlcumNoktalari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ParametreDegerleri">
+        <PropertyRef Name="ParDerId" />
+      </Principal>
+      <Dependent Role="OlcumNoktalari">
+        <PropertyRef Name="ParDerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OLcumSNClari_OLC">
+    <End Role="Olcumler" Type="CalComModel.Store.Olcumler" Multiplicity="1" />
+    <End Role="OlcumSonuclari" Type="CalComModel.Store.OlcumSonuclari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Olcumler">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OlcumSonuclari">
+        <PropertyRef Name="OlcumId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OLcumSNClari_OLCNk">
+    <End Role="OlcumNoktalari" Type="CalComModel.Store.OlcumNoktalari" Multiplicity="1" />
+    <End Role="OlcumSonuclari" Type="CalComModel.Store.OlcumSonuclari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OlcumNoktalari">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OlcumSonuclari">
+        <PropertyRef Name="OlcumNoktalariId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ParDER_KAR">
+    <End Role="Karsilastirmalar" Type="CalComModel.Store.Karsilastirmalar" Multiplicity="1" />
+    <End Role="ParametreDegerleri" Type="CalComModel.Store.ParametreDegerleri" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Karsilastirmalar">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ParametreDegerleri">
+        <PropertyRef Name="karid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerformanceScores_OS">
+    <End Role="OlcumSonuclari" Type="CalComModel.Store.OlcumSonuclari" Multiplicity="1" />
+    <End Role="PerformanceScores" Type="CalComModel.Store.PerformanceScores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OlcumSonuclari">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PerformanceScores">
+        <PropertyRef Name="OlcumSonuclariId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StandartSapmalar_ParDerNk">
+    <End Role="ParametreDegerleri" Type="CalComModel.Store.ParametreDegerleri" Multiplicity="1" />
+    <End Role="StandartSapmalar" Type="CalComModel.Store.StandartSapmalar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ParametreDegerleri">
+        <PropertyRef Name="ParDerId" />
+      </Principal>
+      <Dependent Role="StandartSapmalar">
+        <PropertyRef Name="ParDerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StandartSapmalar_Testler">
+    <End Role="Testler" Type="CalComModel.Store.Testler" Multiplicity="1" />
+    <End Role="StandartSapmalar" Type="CalComModel.Store.StandartSapmalar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Testler">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StandartSapmalar">
+        <PropertyRef Name="Testid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tst_KAR">
+    <End Role="Karsilastirmalar" Type="CalComModel.Store.Karsilastirmalar" Multiplicity="0..1" />
+    <End Role="Testler" Type="CalComModel.Store.Testler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Karsilastirmalar">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Testler">
+        <PropertyRef Name="karid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

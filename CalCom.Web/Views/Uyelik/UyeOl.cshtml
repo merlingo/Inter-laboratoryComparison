@@ -1,0 +1,122 @@
+﻿@{
+    ViewBag.Title = "UyeOl";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="top-spacer"> 
+         <h2> Sisteme Kayıt </h2>  
+
+        </div>
+      </div>
+    </div> 
+  </div><!-- /cont -->
+  
+</div>
+
+
+<div class="container">
+ <div class="row">
+    <div class="col-md-12"> 
+      
+      <div class="panel">
+        <div class="panel-body">
+            
+               <div class="loginmodal-container" style="max-width: 851px;">
+    <h3>Laboratuvar Kayıt Bilgileri</h3>
+					<br>
+                
+                    <p>@ViewBag.a</p>   
+			
+@using (Html.BeginForm("uyeOl","Uyelik",FormMethod.Post))
+{
+    	<div class="form-group col-lg-12">
+    @Html.Label("Lab İsmi")
+    @Html.TextBox("lab_isim", "", new { required="" })
+    <br />
+     </div>
+    	<div class="form-group col-lg-12">
+    @Html.Label("Yönetici")
+    @Html.TextBox("yonetici", "", new { required="" })
+   </div>
+    <br />
+    	<div class="form-group col-lg-12">
+     @Html.Label("Çalısma Alani")
+   @Html.TextBox("calısma_alani", "", new { required="" })</div>
+    <br />
+            	<div class="form-group col-lg-12">
+    @Html.Label("sifre")
+    @Html.Password("sifre", "", new { required="" })
+                    </div>
+    <br />
+                    	<div class="form-group col-lg-12">
+    @Html.Label("Vergi Dairesi Numarası")
+    @Html.TextBox("vergiDairesiNo", "", new { required="" })
+                            </div>
+    <br />
+
+    	<div class="form-group col-lg-12">
+    @Html.Label("Telefon")
+    @Html.TextBox("telefon", "", new { required="" })
+            </div>
+    <br />
+	<div class="form-group col-lg-12">
+    @Html.Label("faks")
+    @Html.TextBox("faks", "", new { required="" })
+        </div>
+    <br />
+	<div class="form-group col-lg-12">
+    @Html.Label("GSM")
+    @Html.TextBox("gsm", "", new { required="" })
+   </div> <br />
+        	<div class="form-group col-lg-12">
+      @Html.Label("Mail Adresi")
+    @Html.TextBox("mail", "", new { required="" })
+                </div>
+    <br />
+	<div class="form-group col-lg-12">
+     
+    @Html.Label("Şehir")
+    @Html.TextBox("sehir", "", new { required="" })
+        </div>
+    <br />
+	<div class="form-group col-lg-12">
+     
+    @Html.Label("Bölge")
+    @Html.TextBox("bolge", "", new { required="" })
+        </div>
+    <br />
+     	<div class="form-group col-lg-12">
+    @Html.Label("Adres")
+    @Html.TextArea("adres","",new{@class="form-control", rows="5",required=""})
+             </div>
+    	<div class="row">
+				<div class="col-xs-4 col-sm-3 col-md-3">
+					<span class="button-checkbox">
+                    <p>   <input type="checkbox" name="t_and_c" id="t_and_c"  value="1"> KABUL</p>
+					</span>
+				</div>
+				<div class="col-xs-8 col-sm-9 col-md-9">
+					  <strong class="label label-primary">KAYDET</strong> butonuna tıklayarak ,  <a href="#" data-toggle="modal" data-target="#t_and_c_m">Terms and Conditions</a> kabul etmiş olursunuz ve sistemimize kabul ettiğiniz kayıt edilir.
+				</div>
+			</div>
+
+
+            	
+        <div class="form-group col-lg-6">   <input type="submit" value="KAYDET"  id="Save"  class="login loginmodal-submit" /></div>
+    <div class="form-group col-lg-6">    <a href="~/Uyelik/Giris" class="btn btn-warning btn-block btn-lg" style="color:white;background-color:black;line-height: 1.70;">İPTAL</a></div>
+	}				
+				  
+				</div>                                                                       
+	          
+      <br />
+ 
+             </div>
+      </div>
+                                                              
+                                                      
+   	</div><!--/col-12-->
+  </div>      
+    </div>

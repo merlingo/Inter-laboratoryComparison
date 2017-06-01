@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+
+@*    templateden gelen*@
+       <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- BOOTSTRAP STYLES-->
+    <link href="~/Content/AdminCss/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="~/Content/AdminCss/font-awesome.css" rel="stylesheet" />
+     <!-- MORRIS CHART STYLES-->
+    <link href="~/Content/AdminCss/morris-0.4.3.min.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="~/Content/AdminCss/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+     <!-- TABLE STYLES-->
+  
+
+@*    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">*@
+    
+       <link rel="stylesheet" href="~/Content/SistemCss/responsive-calendar.css">
+      <link href="~/Content/AdminCss/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+@*        <script src="~/Scripts/bootstrap.js"></script>*@
+    <!-- METISMENU SCRIPTS -->
+    <script src="~/Scripts/jquery.metisMenu.js"></script>
+     <!-- MORRIS CHART SCRIPTS -->
+     <script src="~/Scripts/morris/raphael-2.1.0.min.js"></script>
+    <script src="~/Scripts/morris/morris.js"></script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="~/Scripts/custom.js"></script>
+     <!-- DATA TABLE SCRIPTS -->
+    <script src="~/Content/AdminCss/dataTables/jquery.dataTables.js"></script>
+    <script src="~/Content/AdminCss/dataTables/dataTables.bootstrap.js"></script>
+
+    <script type="text/javascript"
+     src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+    </script> 
+    <script type="text/javascript"
+     src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">
+    </script>
+    <script type="text/javascript"
+     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
+    </script>
+    <script type="text/javascript"
+     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js"> 
+        
+        
+    </script>
+    @RenderSection("scripts", required: false)
+                 <script src="~/Scripts/responsive-calendar.js"></script>
+
+</head>
+<body>
+      <script type='text/javascript'>
+
+          //Define your scripts
+
+          //When an <li> element in your myMenu area is clicked
+          $('#main-menu li').on('click', function () {
+              alert("basildi");
+              //Removes the active class from any <li> elements
+              $('li.active-menu').removeClass('active-menu');
+              //Adds it to the current element
+              $(this).addClass('active-menu');
+
+
+          });
+
+</script>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="~/Views/AdminPanel/Index">JERA Electronics</a> 
+            </div>
+  <div style="color: white;
+padding: 15px 50px 5px 50px;
+float: right;
+font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+        </nav>   
+           <!-- /. NAV TOP  -->
+                <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+				<li class="text-center">
+                    
+					</li>
+				
+					
+                    <li>
+                        <a class="active-menu" href="~/Genel/AdminPanel"> Ön Panel</a>
+                    </li>
+                     <li>
+                        <a  href="~/Laboratuvar/Takip"> Labavatuar Takip Ekranı</a>
+                    </li>
+                      <li  >
+                          @Html.ActionLink("Mesajlar","AdminMesaj","Laboratuvar")
+                    </li>
+                   				
+					 <li>
+                                @Html.ActionLink("Dosya Yükle", "DosyaYukle", "Genel")
+                            </li>
+					                   
+                    <li>
+                        <a href="#"> Karşılaştırma Panelleri<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                        <a  href="~/KarsilastirmaIslem/OABilgileri"> Karşılaştırma Ekle</a>
+
+                            </li>
+                              <li>
+                        <a   href="~/KarsilastirmaIslem/BaslatSec"> Karşılaştırma Başlatma</a>
+                            </li>
+                              <li>
+                        <a   href="~/KarsilastirmaIslem/SonucListesi"> Karşılaştırma Sonuçlandırma </a>
+                            </li>
+                              <li>
+                        <a  href="~/KarsilastirmaTakip/Yonet"> Tüm Karşılaştırma Bilgileri</a>
+                            </li>
+
+                          
+                           
+                            
+                            @* <li  >
+                        <a  href="~/AdminPanel/ArsivTestListesi"> ARŞİV </a>
+                    </li>*@
+                        </ul>
+                      </li>  
+                 	
+                </ul>
+               
+            </div>
+            
+        </nav>  
+    <div>
+        
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                   
+        @RenderBody()
+    
+                </div> 
+                </div>
+            </div>             
+        </div>
+    
+
+    
+  </body>
+</html>

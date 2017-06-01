@@ -1,0 +1,28 @@
+﻿@model Dictionary<string,CalCom.Web.Models.TakipViewModel>
+@foreach(var d in Model)
+{
+    
+<div class="row">
+    <div class="panel panel-default">
+    <div class="panel-heading">
+        @d.Key Gösterimi
+    </div>
+    <div class="panel-body">
+    <div class="col-md-5"> 
+        <h4> Takvim</h4>
+        @Html.DisplayFor(x=>d.Value.takvim)
+    </div>
+     <div class="col-md-3">
+         <h4>Kayıt Bilgileri</h4>
+         @Html.DisplayFor(x=>d.Value.kayitBilgileri)
+     </div>
+     <div class="col-md-4"> 
+         <h4>Ölçüm Bilgileri</h4>
+         @Html.DisplayFor(x=>d.Value.olcumBilgileri)
+              </div>
+
+    </div>
+
+    </div>
+</div>
+}

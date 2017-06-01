@@ -1,0 +1,34 @@
+﻿@model CalCom.Web.Models.OlcumBilgileri
+
+
+<div class="form-group">
+        <label  class="control-label col-xs-2">Nem:</label>
+        <div class="col-xs-10">
+            @Model.Nem
+
+        </div>
+    </div>
+
+<div class="form-group">
+        <label  class="control-label col-xs-2">Sıcaklık:</label>
+        <div class="col-xs-10">
+            @Model.Sicaklik
+
+        </div>
+    </div>
+
+<div class="form-group">
+        <label  class="control-label col-xs-2">Basınç:</label>
+        <div class="col-xs-10">
+            @Model.Basinc
+
+        </div>
+    </div>
+<div class="form-group">
+        <label  class="control-label col-xs-2">Sonuçlar:</label>
+        <div class="col-xs-10">
+            @Html.DisplayFor(x=>x.Sonuclar)
+
+        </div>
+    </div>
+

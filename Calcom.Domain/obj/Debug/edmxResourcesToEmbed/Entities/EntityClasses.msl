@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CalComModelStoreContainer" CdmEntityContainer="CalComEntities">
+    <EntitySetMapping Name="IslemGecmisleri">
+      <EntityTypeMapping TypeName="CalComModel.IslemGecmisleri">
+        <MappingFragment StoreEntitySet="IslemGecmisleri">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LabId" ColumnName="LabId" />
+          <ScalarProperty Name="IslemAdi" ColumnName="IslemAdi" />
+          <ScalarProperty Name="IslemTipi" ColumnName="IslemTipi" />
+          <ScalarProperty Name="IslemTarihi" ColumnName="IslemTarihi" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Karsilastirmalar">
+      <EntityTypeMapping TypeName="CalComModel.Karsilastirmalar">
+        <MappingFragment StoreEntitySet="Karsilastirmalar">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OAId" ColumnName="OAId" />
+          <ScalarProperty Name="Alan" ColumnName="Alan" />
+          <ScalarProperty Name="OlcumAraligiBas" ColumnName="OlcumAraligiBas" />
+          <ScalarProperty Name="OlcumAraligiSon" ColumnName="OlcumAraligiSon" />
+          <ScalarProperty Name="InputSayisi" ColumnName="InputSayisi" />
+          <ScalarProperty Name="FonksiyonNo" ColumnName="FonksiyonNo" />
+          <ScalarProperty Name="Tur" ColumnName="Tur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Laboratuvarlar">
+      <EntityTypeMapping TypeName="CalComModel.Laboratuvarlar">
+        <MappingFragment StoreEntitySet="Laboratuvarlar">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Isim" ColumnName="Isim" />
+          <ScalarProperty Name="Yonetici" ColumnName="Yonetici" />
+          <ScalarProperty Name="CalismaAlani" ColumnName="CalismaAlani" />
+          <ScalarProperty Name="VergiDairesiNo" ColumnName="VergiDairesiNo" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Faks" ColumnName="Faks" />
+          <ScalarProperty Name="Gsm" ColumnName="Gsm" />
+          <ScalarProperty Name="Sehir" ColumnName="Sehir" />
+          <ScalarProperty Name="Bolge" ColumnName="Bolge" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="Amblem" ColumnName="Amblem" />
+          <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mesajlar">
+      <EntityTypeMapping TypeName="CalComModel.Mesajlar">
+        <MappingFragment StoreEntitySet="Mesajlar">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LabId" ColumnName="LabId" />
+          <ScalarProperty Name="Konu" ColumnName="Konu" />
+          <ScalarProperty Name="Tur" ColumnName="Tur" />
+          <ScalarProperty Name="MesajTarihi" ColumnName="MesajTarihi" />
+          <ScalarProperty Name="Mesaj" ColumnName="Mesaj" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OlcumAletleri">
+      <EntityTypeMapping TypeName="CalComModel.OlcumAletleri">
+        <MappingFragment StoreEntitySet="OlcumAletleri">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Isim" ColumnName="Isim" />
+          <ScalarProperty Name="SeriNo" ColumnName="SeriNo" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="İmalatci" ColumnName="İmalatci" />
+          <ScalarProperty Name="Cozunurluk" ColumnName="Cozunurluk" />
+          <ScalarProperty Name="Kapasite" ColumnName="Kapasite" />
+          <ScalarProperty Name="Birim" ColumnName="Birim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Olcumler">
+      <EntityTypeMapping TypeName="CalComModel.Olcumler">
+        <MappingFragment StoreEntitySet="Olcumler">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TestId" ColumnName="TestId" />
+          <ScalarProperty Name="LabId" ColumnName="LabId" />
+          <ScalarProperty Name="GeciciIsim" ColumnName="GeciciIsim" />
+          <ScalarProperty Name="GeciciSifre" ColumnName="GeciciSifre" />
+          <ScalarProperty Name="Sicaklik" ColumnName="Sicaklik" />
+          <ScalarProperty Name="Nem" ColumnName="Nem" />
+          <ScalarProperty Name="Basinc" ColumnName="Basinc" />
+          <ScalarProperty Name="OlcumBaslangicZamani" ColumnName="OlcumBaslangicZamani" />
+          <ScalarProperty Name="OlcumSonZaman" ColumnName="OlcumSonZaman" />
+          <ScalarProperty Name="StandartSapma" ColumnName="StandartSapma" />
+          <ScalarProperty Name="SabitSonuc" ColumnName="SabitSonuc" />
+          <ScalarProperty Name="OzelSonuc" ColumnName="OzelSonuc" />
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OlcumNoktasi">
+      <EntityTypeMapping TypeName="CalComModel.OlcumNoktasi">
+        <MappingFragment StoreEntitySet="OlcumNoktasi">
+          <ScalarProperty Name="NoktaId" ColumnName="NoktaId" />
+          <ScalarProperty Name="karid" ColumnName="karid" />
+          <ScalarProperty Name="OlcumNoktasi1" ColumnName="OlcumNoktasi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OlcumSonuc">
+      <EntityTypeMapping TypeName="CalComModel.OlcumSonuc">
+        <MappingFragment StoreEntitySet="OlcumSonuc">
+          <ScalarProperty Name="OlcumId" ColumnName="OlcumId" />
+          <ScalarProperty Name="ParDerId" ColumnName="ParDerId" />
+          <ScalarProperty Name="OlcumNoktasiId" ColumnName="OlcumNoktasiId" />
+          <ScalarProperty Name="Deger" ColumnName="Deger" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParametreDegerleri">
+      <EntityTypeMapping TypeName="CalComModel.ParametreDegerleri">
+        <MappingFragment StoreEntitySet="ParametreDegerleri">
+          <ScalarProperty Name="ParDerId" ColumnName="ParDerId" />
+          <ScalarProperty Name="karid" ColumnName="karid" />
+          <ScalarProperty Name="ParametreDegeri" ColumnName="ParametreDegeri" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReferansCihazlar">
+      <EntityTypeMapping TypeName="CalComModel.ReferansCihazlar">
+        <MappingFragment StoreEntitySet="ReferansCihazlar">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LabId" ColumnName="LabId" />
+          <ScalarProperty Name="Konu" ColumnName="Konu" />
+          <ScalarProperty Name="Imalatci" ColumnName="Imalatci" />
+          <ScalarProperty Name="SeriNo" ColumnName="SeriNo" />
+          <ScalarProperty Name="Sinif" ColumnName="Sinif" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Testler">
+      <EntityTypeMapping TypeName="CalComModel.Testler">
+        <MappingFragment StoreEntitySet="Testler">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="karid" ColumnName="karid" />
+          <ScalarProperty Name="BaslangicZamani" ColumnName="BaslangicZamani" />
+          <ScalarProperty Name="BitisZamani" ColumnName="BitisZamani" />
+          <ScalarProperty Name="OlcumZamani" ColumnName="OlcumZamani" />
+          <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+          <ScalarProperty Name="ProtokolNo" ColumnName="ProtokolNo" />
+          <ScalarProperty Name="OlcumSuresi" ColumnName="OlcumSuresi" />
+          <ScalarProperty Name="GerekenLabSayisi" ColumnName="GerekenLabSayisi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,23 @@
+ölçüm noktalarý ve olcum noktasý 2 ayrý tablo olmasýna ragmen ayný iþlevi görürler. Ölçüm Noktalarý nestedInputValue(NIV) türünden veriler için
+OlcumNoktasý da SquareINputValue(SIV) deki sonuçlar için kullanýlýr.
+
+
+eðer karþýlaþtýrma düzenli ise
+	Ölçüm noktasý ve ParDer ler istenir(partial)
+	Laboratuvar SIV kullanarak verileri girer
+	Admin SIV display kullanarak görürler.
+	olcum noktasý ve sonuc tablosundan veriler alýnýr
+eðer Karþýlaþtýrma düzensiz ise
+	ParDerler istenir
+	Her parder için Olcum noktalarý girilir
+	Laboratuvar NIV kullanarak veri girer
+	Admin NIV kullanarak görür
+	Olcum Noktalarý ve olcum sonuclar tablosundan veriler alýnýr
+
+Laboratuvar bilgilerine "kapsam" tabý da eklenecek
+Test Kayýt deðiþtirilmeli -> lab kayýt olur tarih seçmeden
+			     yönetici þehir bazýnda dönemler belirler
+ 			     Her dönem-þehir için farklý tarih aralýklarý laboratuvara seçtirilir.
+			    
+Cihaz Takip -> ön panelde olacak
+	       

@@ -1,0 +1,92 @@
+﻿@model System.Collections.Generic.List<Calcom.Domain.Entities.Dosyalar>
+@{
+    ViewBag.Title = "DosyaYukle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@{int i = 0;}
+<h2>Dosya Yukle</h2>
+<p>Karşılaştırma protokol pdf'leri ve rehber dökümanların sisteme yüklendiği sayfadır. Dosyalar herkese açık olacaktır.</p>
+<div class="panel panel-default">
+                      
+                        <div class="panel-body">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#home" data-toggle="tab" >Protokoller</a>
+                                </li>
+                                <li class=""><a href="#profile" data-toggle="tab">Rehber Dökümanlar</a>
+                                </li>
+                            </ul>
+                           
+                            <div class="tab-content">
+                               
+                                <div class="tab-pane fade active in" id="home"> 
+                                     @using (Html.BeginForm("UploadProtokol", "Genel", FormMethod.Post, new { id = "formid_prtkl", enctype = "multipart/form-data" }))
+ {
+                                    <h4>Protokoller</h4>
+                                    <div class="panel-body"> 
+                                        <p>Sistemde kayıtlı protokoller aşağıda listelenmiştir. </p>
+                                        <table class="table">
+                                            <thead>
+                                                <tr><th>Sıra</th><th>Ad</th><th>Kod</th><th>Link</th></tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var d in Model)
+                                                {
+                                                    if (d.Tur.Equals("P"))
+                                                    {
+                                                       
+                                                        <tr><td>@i</td><td>@d.İsim</td><td>@d.Kod</td><td>@Html.ActionLink("İndir","getDocument",new{path=@d.path})</td></tr>
+                                                        i++;
+                                                    }
+                                                        
+                                                }
+                                            </tbody>
+                                        </table>
+   
+                                    </div>
+
+                                    <div class="panel-footer">
+                                        <input type="file" name="file" />
+   <input type="submit" value="Upload" class="save" id="proklEkleme" />
+                                
+                                </div>}
+                                      </div>
+                                 
+                                <div class="tab-pane fade" id="profile">
+                                  @using (Html.BeginForm("UploadRehber", "Genel", FormMethod.Post, new { id = "formid_rehber", enctype = "multipart/form-data" }))
+ {
+                                      <h4>Rehber Dökümanlar</h4>
+                                    <div class="panel-body"> 
+                                        <p>Sistemde kayıtlı tüm rehber dökümanlar aşağıda listelenmiştir. </p>
+                                        <table class="table">
+                                            <thead>
+                                                <tr><th>Sıra</th><th>Ad</th><th>Kod</th><th>Link</th></tr>
+                                            </thead>
+                                            <tbody>
+                                                  @foreach (var d in Model)
+                                                {
+                                                    if (d.Tur.Equals("R"))
+                                                    {
+                                                         i++;
+                                                        <tr><td>@i</td><td>@d.İsim</td><td>@d.Kod</td><td>@Html.ActionLink("İndir","getDocument",new{path=@d.path})</td></tr>
+                                                      
+                                                    }
+                                                        
+                                                }
+                                            </tbody>
+                                        </table>
+   
+                                    </div>
+
+                                    <div class="panel-footer">Yeni Ekle: 
+                                        <input type="file" name="file" />
+   <input type="submit" value="Upload" class="save" id="rehbEkleme" />
+                                
+                                </div>
+                                  }
+                                </div>
+                            </div>
+    </div>
+    </div>
+    <script>
+     
+    </script>

@@ -1,0 +1,11 @@
+﻿@model CalCom.Web.Models.OlcNoktalari
+ @{int i = 0;
+   } 
+<table class="table">
+<tr> <th>Ölçüm Sırası</th><th>Ölçüm Noktası </th></tr>
+@for( i=0; i< Model.olcListesi.Count;i++){
+
+     
+      <tr><td>@i</td><td> @Html.TextBox("olcler["+(Model.toplamOlc+ i)+"].OlcumNoktasi", Model.olcListesi[i].OlcumNoktasi, new{ required=""}  )</td></tr> @Html.Hidden("olcler["+(Model.toplamOlc+ i)+"].ParDerId", Model.olcListesi[i].ParDerId) 
+     }
+   </table>

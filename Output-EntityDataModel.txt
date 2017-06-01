@@ -1,0 +1,3 @@
+﻿Generated model file: CalComEntities.edmx.
+Loading metadata from the database took 00:00:01.4175572.
+Generating the model took 00:00:04.1570684.

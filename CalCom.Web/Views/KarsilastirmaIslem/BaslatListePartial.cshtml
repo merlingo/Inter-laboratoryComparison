@@ -1,0 +1,76 @@
+﻿@model CalCom.Web.Models.BaslatilacakTest[]
+  <div class="table-responsive">
+                       
+                        
+        
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Ölçüm Aleti
+                                    </th>
+                                     <th>
+                                        Seri No
+                                    </th>
+                                     <th>
+                                        Model
+                                    </th>
+                                     <th>
+                                       Çözünürlük
+                                    </th>
+                                    <th>
+                                        Kapasite
+                                    </th>
+                                     <th>
+                                        Ölçüm Aralığı Baş. Değ.
+                                    </th>
+                                     <th>
+                                        Ölçüm Aralığı Bit. Değ.
+                                    </th>
+                                     <th>
+                                        Tür
+                                    </th>
+                                     <th>
+                                        Test Sayısı
+                                    </th>
+                                    <th>
+                                        Seç
+                                    </th>
+                                </tr>
+                            </thead>
+                          
+                            <tbody>
+                               
+                                @for(int i = Model.index;  i<Model.Length; i++ )
+{
+ <tr> 
+     <td>@Html.DisplayFor(m => m.bts[i].OA.Isim) @Html.HiddenFor(m => m.bts[i].id) </td> 
+     <td>  @Html.DisplayFor(m => m.bts[i].OA.SeriNo)</td>
+     <td> @Html.DisplayFor(m => m.bts[i].OA.Model)</td>
+     <td> @Html.DisplayFor(m => m.bts[i].OA.Cozunurluk)</td>
+     <td> @Html.DisplayFor(m => m.bts[i].OA.Model)</td>
+     <td> @Html.DisplayFor(m => m.bts[i].olcumAraligi[0])</td>
+     <td> @Html.DisplayFor(m => m.bts[i].olcumAraligi[1])</td>
+     <td> @Html.DisplayFor(m => m.bts[i].Tür)</td>
+     <td> @Html.DisplayFor(m => m.bts[i].kacDefa)</td>
+
+     <td>@Html.EditorFor(m => m.bts[i].secildiMi)</td>
+
+ </tr>
+   
+}
+                            </tbody>
+                        </table>
+       <hr />
+      </div>
+ <script>
+  
+     
+     @{
+         Model.size = Model.index + Model.bts.Length;
+            <text>
+     value = '@Model.bts.Length';
+     
+     </text>
+         }
+</script>

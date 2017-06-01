@@ -1,0 +1,21 @@
+﻿@model CalCom.Web.Models.OrtamDegerleri
+
+ <div class="form-group">
+        <label class="control-label col-xs-2">Basınç</label>
+        <div class="col-xs-10">
+            @Html.TextBoxFor(x => x.basinc, new {   @class="form-control", placeholder="Basınç" , required=""})
+            @Html.HiddenFor(y=>y.olcId)
+        </div>
+    </div>
+ <div class="form-group">
+        <label class="control-label col-xs-2">Nem</label>
+        <div class="col-xs-10">
+            @Html.TextBoxFor(x => x.nem, new {   @class="form-control", placeholder="Nem" , required=""})
+        </div>
+    </div>
+ <div class="form-group">
+        <label class="control-label col-xs-2">Sıcaklık</label>
+        <div class="col-xs-10">
+            @Html.TextBoxFor(x => x.sicaklik, new {   @class="form-control", placeholder="Sıcaklık", required="" })
+        </div>
+    </div>

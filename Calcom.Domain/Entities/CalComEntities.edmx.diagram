@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4465d59534ed42d1a28a8451f36ea69e" Name="Diagram1" ZoomLevel="97">
+        <EntityTypeShape EntityType="CalComModel.IslemGecmisleri" Width="1.625" PointX="7.375" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CalComModel.Mesajlar" Width="1.5" PointX="10.125" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CalComModel.Olcumler" Width="1.5" PointX="7.5" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CalComModel.ParametreDegerleri" Width="1.5" PointX="2.75" PointY="18.125" />
+        <EntityTypeShape EntityType="CalComModel.ReferansCihazlar" Width="1.75" PointX="0.75" PointY="24.125" />
+        <EntityTypeShape EntityType="CalComModel.LabinReferansCihazlari" Width="1.875" PointX="10.125" PointY="9.625" />
+        <EntityTypeShape EntityType="CalComModel.OlcumdekiReferansCihaz" Width="2.125" PointX="0.875" PointY="1.375" />
+        <AssociationConnector Association="CalComModel.FK_LabinReferansCihazlari_ReferansCihazlar" />
+        <AssociationConnector Association="CalComModel.FK_OlcumdekiReferansCihaz_LabinReferansCihazlari" />
+        <AssociationConnector Association="CalComModel.FK_OlcumdekiReferansCihaz_Olcumler" />
+        <EntityTypeShape EntityType="CalComModel.Laboratuvarlar" Width="1.5" PointX="1.7540962666990683" PointY="24.793145295601871" />
+        <EntityTypeShape EntityType="CalComModel.OlcumNoktalari" Width="1.5" PointX="1.375" PointY="6.5" />
+        <AssociationConnector Association="CalComModel.FK_IG_Labo" />
+        <AssociationConnector Association="CalComModel.FK_LabinReferansCihazlari_Laboratuvarlar" />
+        <AssociationConnector Association="CalComModel.FK_Msj_Labo" />
+        <AssociationConnector Association="CalComModel.Fk_OLC_LAB" />
+        <AssociationConnector Association="CalComModel.FK_OlcumNoktalari_OlcumNoktalari" />
+        <AssociationConnector Association="CalComModel.FK_OlcumNoktalari_ParametreDegerleri" />
+        <EntityTypeShape EntityType="CalComModel.KayitBekleyenLab" Width="1.875" PointX="4.875" PointY="2.375" />
+        <EntityTypeShape EntityType="CalComModel.Dosyalar" Width="1.5" PointX="1.625" PointY="32.5" />
+        <EntityTypeShape EntityType="CalComModel.Testler" Width="1.5" PointX="9.125" PointY="28.625" />
+        <AssociationConnector Association="CalComModel.FK_Olcumler_Testler" />
+        <EntityTypeShape EntityType="CalComModel.OlcumSonuclari" Width="1.5" PointX="4.625" PointY="29.5" />
+        <AssociationConnector Association="CalComModel.FK_OLcumSNClari_OLC" />
+        <AssociationConnector Association="CalComModel.FK_OLcumSNClari_OLCNk" />
+        <EntityTypeShape EntityType="CalComModel.BasBekleyenTestler" Width="1.5" PointX="3.9489820971847429" PointY="17.231354959882495" />
+        <EntityTypeShape EntityType="CalComModel.KesinDegerler" Width="1.5" PointX="10.972622612012842" PointY="23.026960279339441" />
+        <EntityTypeShape EntityType="CalComModel.PerformanceScores" Width="1.5" PointX="4.625" PointY="32.625" />
+        <EntityTypeShape EntityType="CalComModel.StandartSapmalar" Width="1.5" PointX="11.982119841492789" PointY="20.4526441788546" />
+        <AssociationConnector Association="CalComModel.FK_KesinDegerler_OLC" />
+        <AssociationConnector Association="CalComModel.FK_KesinDegerler_OLCNk" />
+        <AssociationConnector Association="CalComModel.FK_PerformanceScores_OS" />
+        <AssociationConnector Association="CalComModel.FK_StandartSapmalar_ParDerNk" />
+        <AssociationConnector Association="CalComModel.FK_StandartSapmalar_Testler" />
+        <EntityTypeShape EntityType="CalComModel.OlcumAletleri" Width="1.5" PointX="12" PointY="28.375" />
+        <EntityTypeShape EntityType="CalComModel.Karsilastirmalar" Width="1.5" PointX="9.75" PointY="16.875" />
+        <AssociationConnector Association="CalComModel.FK_BasBekleyenTestler_Karsilastirmalar" />
+        <AssociationConnector Association="CalComModel.FK_OA_to_Karsilastirmalar" />
+        <AssociationConnector Association="CalComModel.FK_ParDER_KAR" />
+        <AssociationConnector Association="CalComModel.FK_Tst_KAR" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

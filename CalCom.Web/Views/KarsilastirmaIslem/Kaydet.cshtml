@@ -1,0 +1,129 @@
+﻿@model Calcom.Domain.Entities.Gecici
+@{
+   @{
+    ViewBag.Title = "Test-Kayıt";
+    ViewBag.Lab = "UMS";
+    ViewBag.Yonetici = "Mert Nar";
+    ViewBag.CalismaAlani = "Demir Çelik Kalibrasyonu";
+    ViewBag.ImagePath = "../../dist/img/user2-160x160.jpg";
+}
+        <div class="container">
+          <!-- Content Header (Page header) -->
+          <section class="content-header">
+            <h1>
+             İşlemler
+              
+            </h1>
+            <ol class="breadcrumb">
+                <li class="active"><a href="Islemler"><i class="fa fa-dashboard"></i> İşlemler</a></li>
+                <li class="active">Test-Kayıt</li>
+            </ol>
+          </section>
+
+          <!-- Main content -->
+          <section class="content"> <!-- renderBody() buraya gelecek, içerik burada değişecek hatta eğer ihtiyaç duyulursa "content-wrapper" dan da alınabilir. Çünkü her sayfa için değişecek yan menüyü sayfalara alırız.-->
+            <div class="row"> 
+             <div class="col-sm-3"> 
+                 
+                     <ul  class="nav nav-pills nav-stacked">
+                        <li class="active"><a href="TestSeç" >Test-Kayıt</a></li>
+                        <li><a href="OlcumKarsilastirmalari"> Ölçüm</a></li>
+                        <li><a href="Analiz">Analiz</a></li>
+
+                    </ul>
+                 
+              </div> 
+            <div class="col-sm-9">
+                  <div class="box box-default tab-pane fade active in" id="LabPanel">
+                     <div class="box-header with-border">
+                     <h3 class="box-title">Karşılaştırma Kayıt Bilgilendirme</h3>
+                     </div>
+                     <div class="box-body ">
+                                 <p>Karşılaştırma kaydınız başarıyla gerçekleştirilmiştir. Ölçüm yapabilmek için gerekli bilgiler aaşağıdadır. </p>
+
+                            <p>İsim: @Model.gname</p>
+                            <p>
+                                Şifre: @Model.gsifre
+                            </p>
+                        
+                    </div><!-- /.box-body -->
+                 </div><!-- /.box -->
+                 
+            </div>
+        </div>  
+
+          </section><!-- /.content -->
+      
+        </div><!-- /.container -->@*
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="top-spacer"> 
+         <h2>Karşılaştırma Kayıt</h2>
+        </div>
+      </div>
+    </div> 
+  </div><!-- /cont -->
+  
+</div>
+
+
+<div class="container">
+      <div id="wrapper" class="fixed">
+
+       <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+				<li class="text-center">
+                    
+					</li>
+				
+					
+                    <li>
+                        @Html.ActionLink("Test Kayıt", "TestSeç", null, new { @class="active-menu sol linkactive"}) 
+                    </li>
+                    <li>
+                       @Html.ActionLink("Ölçüm","OlcumKarsilastirmalari", null, new { @class="active-menu sol" })
+                    </li>
+                  
+                </div>
+             </nav>
+                </div>
+    <div class="row">
+    <div class="col-md-12"> 
+      
+      <div class="panel">
+        <div class="panel-body">
+                       <h3>Bilgilendirme</h3>
+        <p>Karşılaştırma kaydınız başarıyla gerçekleştirilmiştir. Ölçüm yapabilmek için gerekli bilgiler aaşağıdadır. </p>
+             
+            <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Ölçüm Giriş Bilgileri
+                        </div>
+                        <div class="panel-body">
+                            <p>İsim: @Model.gname</p>
+                            <p>
+                                Şifre: @Model.gsifre
+                            </p>
+
+                            </div>
+                        </div>
+      </div>
+                                                                                       
+	                                                
+                                                      
+   	</div><!--/col-12-->
+  </div>      
+    </div>
+    </div>*@

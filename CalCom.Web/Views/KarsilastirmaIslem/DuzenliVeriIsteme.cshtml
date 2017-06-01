@@ -1,0 +1,84 @@
+﻿@model int
+<p>
+    1- İki panel olur birinde onlar birinde bunlar istenir
+    2- Scriptleri unutma
+    3- BeginFormları burda yazmalı
+</p>
+  @using (Html.BeginForm("EkleBilgilendirme", "KarsilastirmaIslem", FormMethod.Post))
+    {
+<div class="row">
+    <div class="panel panel-default .col-xs-6">
+   <div class="panel-heading">
+
+      <h3 class="panel-title">Parametre Sayısı: </h3><input type="text" class="form-control" id="par-control"  required="">
+   </div>
+   <div class="panel-body">
+      Parametre Değerleri burada girilecektir.
+       <span id="par-div"></span>
+   </div>
+  
+</div>
+        
+     
+    <div class="panel panel-default .col-xs-6">
+   <div class="panel-heading">
+
+      <h3 class="panel-title">Ölçüm Noktası Sayısı: </h3><input type="text" class="form-control" id="olc-control"  required="">
+   </div>
+   <div class="panel-body">
+      Ölçüm noktaları burada girilecektir.
+       <span id="olc-div"></span>
+   </div>
+  
+</div>
+    <div class="panel-footer"><button>KAYDET</button></div>
+</div>
+  }
+<script>
+
+    var karid;
+     @{
+            <text>
+    karid = '@Model';
+
+     </text>
+         }
+        //alert(karid);
+        $("#par-control").change(function () {
+            var e = $("#par-control").val();
+        alert(e);
+
+        $.ajax(
+{
+    url: '/KarsilastirmaIslem/ParDegerPartial',
+    type: "GET",
+    data: {
+        'sayi': e,
+        'karid': karid
+    },
+    success: function (response) {
+        $("#par-div").html(response);
+
+    }
+});
+    
+    });
+
+    $("#olc-control").change(function () {
+        var z = $("#olc-control").val();
+        $.ajax(
+{
+    url: '/KarsilastirmaIslem/OlcNoktaPartial',
+    type: "GET",
+    data: {
+        'sayi': z,
+        'karid': karid
+    },
+    success: function (response) {
+        $("#olc-div").html(response);
+
+    }
+});
+
+    });
+</script>

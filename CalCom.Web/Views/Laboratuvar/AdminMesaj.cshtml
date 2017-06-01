@@ -1,0 +1,127 @@
+﻿@model CalCom.Web.Models.Laboratuvar.MesajKutusuViewModel
+@{
+    ViewBag.Title = "AdminMesaj";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+ <div class="col-md-12"> 
+      
+      <div class="panel">
+        <div class="panel-body">
+            
+
+
+
+
+                   <ul class="nav nav-tabs">
+                                <li class="active"><a href="#Gelenler" data-toggle="tab">Gelenler</a>
+                                </li>
+                                <li class=""><a href="#Gidenler" data-toggle="tab">Gidenler</a>
+                                </li>
+                               
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane fade" id="Gidenler">
+                                    <h4>Gelen Mesajlar</h4>
+                                    <hr />
+                                    <!-- dropdown box yeri--> 
+                                    
+                                    <div class="row">   <div class="col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                            <label>Konu</label>
+                                                   
+                                       
+                                         <select multiple class="form-control" onchange="GelenMesaj()" id ="MGeList">
+                                         
+                                            @foreach (var ms in Model.Mesajlar)
+                                            {
+                                                        if(ms.Tur==false){
+                                                 <option value="@ms.Id"  >@ms.Konu - @ms.Laboratuvarlar.Isim</option>}
+                                                                                           }
+                    
+                      </select>  
+                                                     <input type="hidden"  name="mgeid" id="mgeid"/>   
+                                   <!-- dropdown box bitimi --></div>
+                                         </div>
+                                    <!-- ölçüm aleti gösterimi -->
+                                     <div class="col-md-6 col-sm-6">
+                                         
+                                   <div id="GelenSpan"></div></div></div>
+                         
+
+                                </div> 
+                              
+                                <div class="tab-pane fade active in" id="Gelenler">  
+                                   
+                                    <h4>Giden Mesajlar</h4>
+                                    <hr />
+                                    <!-- dropdown box yeri--> 
+                                    
+                                    <div class="row">   <div class="col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                            <label>Konu</label>
+                                                   
+                                       
+                                         <select multiple class="form-control" onchange="GidenMesaj()" id ="GiMList">
+                                         
+                                            @foreach (var oa in Model.Mesajlar)
+                                            {
+                                                    if(oa.Tur==true){
+                                                 <option value="@oa.Id"  >@oa.Konu - @oa.Laboratuvarlar.Isim</option>
+                                            }
+                                            }
+                    
+                      </select>  
+                                                     <input type="hidden"  name="GiMid" id="GiMid"/>   
+                                   <!-- dropdown box bitimi --></div>
+                                         </div>
+                                    <!-- ölçüm aleti gösterimi -->
+                                     <div class="col-md-6 col-sm-6">
+                                         
+                                   <div id="GidenSpan"></div></div></div>
+
+                                </div>
+                                     
+                            </div>
+            </div>
+         <div class="panel-footer">@Html.ActionLink("Yeni Mesaj","MesajAt","Laboratuvar")</div>
+           </div>
+        </div>
+     
+<script>
+    function GidenMesaj() {
+
+        var x = $("#GiMList :selected").val();
+        $('#GiMid').val(x);
+        alert(x);
+        $.ajax(
+ {
+     url: '/Laboratuvar/AdminMesajPartial',
+     type: "GET",
+     data: { 'mId': x },
+     success: function (response) {
+         $("#GidenSpan").html(response);
+         
+     }
+ });
+    }
+
+    function GelenMesaj() {
+
+        var x = $("#MGeList :selected").val();
+        $('#mgeid').val(x);
+
+        $.ajax(
+ {
+     url: '/Laboratuvar/AdminMesajPartial',
+     type: "GET",
+     data: { 'mId': x },
+     success: function (response) {
+         $("#GelenSpan").html(response);
+
+     }
+ });
+    }
+
+</script>
